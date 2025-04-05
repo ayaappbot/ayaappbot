@@ -70,7 +70,7 @@ main {
     border-radius: 20px;
     padding: 5px 10px;
     position: absolute;
-    bottom: 100px; /* Moved up from 80px to 100px */
+    bottom: 80px; /* Position for desktop (not visible) */
     left: calc(50% + 80px); /* Right of the bunny (bunny width/2 = 100px) */
     transform: translateX(0); /* No centering, aligned to the right of bunny */
     z-index: 3; /* Above bunny and grass */
@@ -87,13 +87,13 @@ main {
 .demo-chat-try::before {
     content: '';
     position: absolute;
-    bottom: 8px; /* Align with the bubble's edge */
-    left: -12px; /* Connect seamlessly */
+    bottom: 7px; /* Centered vertically on the bubble */
+    left: -10px; /* Adjusted to connect seamlessly */
     width: 0;
     height: 0;
-    border-top: 5px solid transparent; /* Reduced from 6px to 5px */
-    border-bottom: 5px solid transparent; /* Reduced from 6px to 5px */
-    border-right: 12px solid #fff; /* Keep wide base for connection */
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 10px solid #fff; /* Reduced to ensure connection */
 }
 
 .demo-chat {
@@ -331,6 +331,15 @@ footer.visible {
 
     .demo-chat-try {
         display: block; /* Show the "Try Aya" bubble on mobile */
+        bottom: 100px; /* Position already set */
+    }
+
+    .demo-chat-try::before {
+        bottom: 7px; /* Adjusted to center vertically */
+        left: -10px; /* Adjusted to connect seamlessly */
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-right: 10px solid #fff; /* Reduced to ensure connection */
     }
 
     .demo-chat {
