@@ -70,7 +70,7 @@ main {
     border-radius: 20px;
     padding: 5px 10px;
     position: absolute;
-    bottom: 60px; /* Positioned above the bunny's bottom */
+    bottom: 80px; /* Moved up from 60px to 80px */
     left: calc(50% + 80px); /* Right of the bunny (bunny width/2 = 100px) */
     transform: translateX(0); /* No centering, aligned to the right of bunny */
     z-index: 3; /* Above bunny and grass */
@@ -87,13 +87,13 @@ main {
 .demo-chat-try::before {
     content: '';
     position: absolute;
-    bottom: 5px; /* Tail position */
-    left: -8px; /* Tail points to bunny */
+    bottom: 8px; /* Adjusted to align with the bubble's edge */
+    left: -12px; /* Moved left to connect seamlessly */
     width: 0;
     height: 0;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-right: 8px solid #fff; /* Tail color matches chat background */
+    border-top: 6px solid transparent; /* Smaller tail for better fit */
+    border-bottom: 6px solid transparent;
+    border-right: 12px solid #fff; /* Larger right border to connect to bubble */
 }
 
 .demo-chat {
