@@ -38,11 +38,6 @@ header p {
     left: 50%;
     transform: translateX(-50%); /* Centers the bunny horizontally */
     z-index: 1; /* Bunny behind grass */
-    transition: bottom 0.8s ease-in-out; /* Smooth slide-up animation */
-}
-
-.welcome .bunny.visible {
-    bottom: 0; /* Final position */
 }
 
 .welcome .grass {
