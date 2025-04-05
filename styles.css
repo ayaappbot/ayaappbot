@@ -140,7 +140,7 @@ footer {
 /* Media query for mobile */
 @media (max-width: 768px) {
     .welcome .grass {
-        width: 800px; /* Forces a wider image to increase height via aspect ratio */
+        width: 900px; /* Increased from 800px to make it a bit taller */
         height: auto; /* Lets height scale with width */
         left: 50%;
         transform: translateX(-50%); /* Centers it */
