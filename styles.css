@@ -140,10 +140,10 @@ footer {
 /* Media query for mobile */
 @media (max-width: 768px) {
     .welcome .grass {
-        height: 60px; /* Matches estimated desktop height, adjust if needed */
-        width: auto; /* Allows natural scaling */
+        width: 800px; /* Forces a wider image to increase height via aspect ratio */
+        height: auto; /* Lets height scale with width */
         left: 50%;
         transform: translateX(-50%); /* Centers it */
-        object-fit: cover; /* Crops sides to maintain height */
+        object-fit: cover; /* Crops sides to fit screen */
     }
 }
