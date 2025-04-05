@@ -17,9 +17,12 @@ window.addEventListener('scroll', () => {
     const footer = document.querySelector('#footer');
     const welcomeBottom = welcomeSection.getBoundingClientRect().bottom;
     const viewportHeight = window.innerHeight;
-    const triggerPoint = viewportHeight * 0.6; // Adjusted to 60% of viewport height (a bit above halfway)
+    const triggerPoint = viewportHeight * 0.7; // Adjusted to 70% of viewport height (higher up)
 
-    // When the bottom of the welcome section (grass) reaches 60% up the viewport
+    // Debug: Log values to check on desktop
+    console.log('welcomeBottom:', welcomeBottom, 'triggerPoint:', triggerPoint);
+
+    // When the bottom of the welcome section (grass) reaches 70% up the viewport
     if (welcomeBottom <= triggerPoint) {
         footer.classList.add('visible');
     } else {
