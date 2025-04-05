@@ -30,7 +30,7 @@ window.addEventListener('scroll', () => {
     // Bunny scroll-driven slide-up
     // Calculate how far the grass (bottom of welcome section) is from the bottom of the viewport
     const grassPosition = Math.max(0, welcomeBottom); // Distance from bottom of viewport
-    const scrollRange = viewportHeight * 2; // Extend the scroll range to slow down the movement
+    const scrollRange = viewportHeight; // Reduced from viewportHeight * 2 to speed up the movement
     // Invert the scroll progress: when grassPosition decreases (scroll down), progress increases
     const scrollProgress = Math.max(0, Math.min(1, (scrollRange - grassPosition) / scrollRange));
     // Map scroll progress (0 to 1) to bunny position (-180px to 0px)
