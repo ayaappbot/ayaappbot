@@ -28,6 +28,7 @@ header p {
     position: relative; /* Allows absolute positioning of the bunny and grass */
     min-height: 500px; /* Increased height for desktop visibility */
     background: linear-gradient(to bottom, #FFE8E0 70%, #E6F0FA 100%); /* Adjusted gradient for more visible light blue */
+    overflow: hidden; /* Ensures cropped grass doesn’t spill out */
 }
 
 .welcome .bunny {
@@ -139,7 +140,9 @@ footer {
 /* Media query for mobile */
 @media (max-width: 768px) {
     .welcome .grass {
-        height: 100px; /* Fixed height to match desktop, adjust as needed */
-        width: 100%; /* Full width, sides will overflow */
+        height: 50%; /* Relative to bunny height, adjust after testing */
+        width: auto; /* Lets it scale naturally, sides will crop */
+        left: 50%;
+        transform: translateX(-50%); /* Centers it like the bunny */
     }
 }
