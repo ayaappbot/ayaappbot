@@ -16,9 +16,7 @@ window.addEventListener('scroll', () => {
     const welcomeSection = document.querySelector('.welcome');
     const footer = document.querySelector('#footer');
     const bunny = document.querySelector('.bunny');
-    const welcomeTop = welcomeSection.getBoundingClientRect().top;
     const welcomeBottom = welcomeSection.getBoundingClientRect().bottom;
-    const welcomeHeight = welcomeSection.offsetHeight;
     const viewportHeight = window.innerHeight;
     const triggerPointFooter = viewportHeight * 0.7; // Footer fade-in at 70% of viewport height
 
@@ -30,14 +28,16 @@ window.addEventListener('scroll', () => {
     }
 
     // Bunny scroll-driven slide-up
-    // Calculate the initial top position of the welcome section (accounting for header)
+    // Use window.scrollY to directly tie movement to scroll position
+    const scrollY = window.scrollY; // Total scroll distance from the top of the page
+    // Calculate the initial scroll position of the welcome section's top
     const headerHeight = document.querySelector('header').offsetHeight;
-    // Adjust scroll progress to start at 0 when welcomeTop is at its initial position
-    const scrollDistance = viewportHeight + welcomeHeight - headerHeight;
-    const scrollProgress = Math.max(0, Math.min(1, (viewportHeight - welcomeTop - headerHeight) / scrollDistance));
-    // Quadruple the movement per scroll: original range was 180px, now use 720px
-    const bunnyPosition = -180 + (scrollProgress * 720); // Moves four times as far per scroll
-    // Cap the position at bottom: 0px to align with the grass
+    const welcomeTopAtStart = headerHeight; // Welcome section starts just below the header
+    // Calculate how far we've scrolled past the welcome section's initial position
+    const scrollPastWelcome = Math.max(0, scrollY - welcomeTopAtStart);
+    // Move the bunny 0.5px up for every 1px scrolled
+    const bunnyPosition = -180 + (scrollPastWelcome * 0.5); // 0.5px movement per 1px scrolled
+    // Cap the position at bottom: 0px as a limit
     const finalPosition = Math.min(0, bunnyPosition);
     bunny.style.bottom = `${finalPosition}px`;
 });
