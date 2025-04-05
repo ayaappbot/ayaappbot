@@ -64,6 +64,61 @@ main {
     margin: 3px 0; /* Reduced to tighten the gap */
 }
 
+.demo-chat {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    max-width: 90%;
+    margin: 20px auto;
+    position: relative;
+    z-index: 3; /* Above bunny and grass */
+}
+
+.demo-header {
+    background-color: #F9E4E4;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    font-size: 1.2em;
+    color: #4A4A4A;
+}
+
+.demo-messages {
+    padding: 10px;
+    max-height: 150px;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.demo-messages p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+#demoInput {
+    width: 70%;
+    padding: 5px;
+    margin: 10px 5px 10px 10px;
+    border: 1px solid #4A4A4A;
+    border-radius: 20px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.demo-chat button {
+    background-color: #E6F0FA;
+    border: none;
+    padding: 5px 10px;
+    font-size: 0.9em;
+    font-family: 'Quicksand', sans-serif;
+    color: #4A4A4A;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.demo-chat button:hover {
+    background-color: #D1E5F7;
+}
+
 .get-started {
     background-color: #F9E4E4;
     border: none;
