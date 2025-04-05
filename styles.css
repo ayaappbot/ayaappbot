@@ -42,7 +42,7 @@ main {
     left: 50%;
     transform: translateX(-50%); /* Centers the bunny horizontally */
     z-index: 1; /* Bunny behind grass */
-    transition: bottom 0.1s linear; /* Smoother, linear transition for continuous scroll movement */
+    transition: bottom 0.1s linear, left 0.5s ease-in-out; /* Add transition for left movement */
 }
 
 .welcome .grass {
@@ -62,6 +62,38 @@ main {
 .welcome p {
     font-size: 1.1em;
     margin: 3px 0; /* Reduced to tighten the gap */
+}
+
+.demo-chat-try {
+    opacity: 0; /* Start fully transparent */
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 5px 10px;
+    position: absolute;
+    bottom: 60px; /* Positioned above the bunny's bottom */
+    left: calc(50% + 80px); /* Right of the bunny (bunny width/2 = 100px) */
+    transform: translateX(0); /* No centering, aligned to the right of bunny */
+    z-index: 3; /* Above bunny and grass */
+    transition: opacity 0.1s linear; /* Smooth fade-in tied to scroll */
+    cursor: pointer;
+    display: none; /* Hidden by default, shown on mobile */
+}
+
+.demo-chat-try span {
+    font-size: 0.9em;
+    color: #4A4A4A;
+}
+
+.demo-chat-try::before {
+    content: '';
+    position: absolute;
+    bottom: 5px; /* Tail position */
+    left: -8px; /* Tail points to bunny */
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid #fff; /* Tail color matches chat background */
 }
 
 .demo-chat {
@@ -297,9 +329,20 @@ footer.visible {
         padding-bottom: 80px; /* Extra padding on mobile to account for smaller viewport */
     }
 
+    .demo-chat-try {
+        display: block; /* Show the "Try Aya" bubble on mobile */
+    }
+
     .demo-chat {
+        display: none; /* Hide the full chat by default on mobile */
         width: 200px; /* Smaller width on mobile */
         bottom: 60px; /* Position for mobile */
         left: calc(50% + 80px); /* Adjust for smaller bunny width on mobile */
+    }
+}
+
+@media (min-width: 769px) {
+    .demo-chat-try {
+        display: none; /* Hide the "Try Aya" bubble on desktop */
     }
 }
