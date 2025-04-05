@@ -31,7 +31,7 @@ window.addEventListener('scroll', () => {
 
     // Bunny scroll-driven slide-up
     // Calculate scroll progress based on the welcome section's position
-    const scrollProgress = Math.max(0, Math.min(1, (viewportHeight - welcomeTop) / (welcomeHeight + viewportHeight)));
+    const scrollProgress = Math.max(0, Math.min(1, (viewportHeight - welcomeTop) / welcomeHeight));
     // Map scroll progress (0 to 1) to bunny position (-180px to 0px)
     const bunnyPosition = -180 + (scrollProgress * 180); // Moves from -180px to 0px
     bunny.style.bottom = `${bunnyPosition}px`;
