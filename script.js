@@ -11,6 +11,25 @@ function sendMessage() {
     document.getElementById('chatInput').value = '';
 }
 
+// Demo chat functionality
+function sendDemoMessage() {
+    const input = document.getElementById('demoInput').value;
+    const messages = document.getElementById('demoMessages');
+    if (input.trim() !== '') {
+        messages.innerHTML += `<p>You: ${input}</p>`;
+        messages.innerHTML += `<p>Aya: I'm here to help! For example, I can answer questions like "What should I expect at 20 weeks pregnant?" Sign up to chat more!</p>`;
+        document.getElementById('demoInput').value = '';
+        messages.scrollTop = messages.scrollHeight; // Auto-scroll to the bottom
+    }
+}
+
+// Allow Enter key to send demo message
+document.getElementById('demoInput').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        sendDemoMessage();
+    }
+});
+
 // Scroll-driven animations
 window.addEventListener('scroll', () => {
     const bunny = document.querySelector('.bunny');
