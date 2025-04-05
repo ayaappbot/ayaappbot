@@ -107,6 +107,12 @@ footer {
     bottom: 0;
     width: 100%;
     color: #4A4A4A;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease-in-out; /* Smooth fade-in */
+}
+
+footer.visible {
+    opacity: 1; /* Fully visible when the class is added */
 }
 
 .chat-box {
