@@ -35,8 +35,8 @@ window.addEventListener('scroll', () => {
     // Adjust scroll progress to start at 0 when welcomeTop is at its initial position
     const scrollDistance = viewportHeight + welcomeHeight - headerHeight;
     const scrollProgress = Math.max(0, Math.min(1, (viewportHeight - welcomeTop - headerHeight) / scrollDistance));
-    // Double the movement per scroll: original range was 180px, now use 360px
-    const bunnyPosition = -180 + (scrollProgress * 360); // Moves twice as far per scroll
+    // Quadruple the movement per scroll: original range was 180px, now use 720px
+    const bunnyPosition = -180 + (scrollProgress * 720); // Moves four times as far per scroll
     // Cap the position at bottom: 0px to align with the grass
     const finalPosition = Math.min(0, bunnyPosition);
     bunny.style.bottom = `${finalPosition}px`;
