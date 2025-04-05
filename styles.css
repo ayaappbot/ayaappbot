@@ -26,8 +26,8 @@ header p {
 .welcome {
     padding: 40px 20px;
     position: relative; /* Allows absolute positioning of the bunny */
-    min-height: 300px; /* Ensures enough space for the bunny */
-    background: linear-gradient(to bottom, #FFE8E0 80%, #E6F0FA 100%); /* Light peach to light blue transition */
+    min-height: 500px; /* Increased height for desktop visibility */
+    background: linear-gradient(to bottom, #FFE8E0 70%, #E6F0FA 100%); /* Adjusted gradient for more visible light blue */
 }
 
 .welcome .bunny {
