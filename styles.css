@@ -23,6 +23,10 @@ header p {
     font-size: 1.2em;
 }
 
+main {
+    padding-bottom: 60px; /* Add padding to ensure content isn't covered by the footer */
+}
+
 .welcome {
     padding: 40px 20px;
     position: relative; /* Allows absolute positioning of the bunny and grass */
@@ -152,5 +156,9 @@ footer.visible {
         left: 50%;
         transform: translateX(-50%); /* Centers it */
         object-fit: cover; /* Crops sides to fit screen */
+    }
+
+    main {
+        padding-bottom: 80px; /* Extra padding on mobile to account for smaller viewport */
     }
 }
