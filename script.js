@@ -33,11 +33,19 @@ document.getElementById('demoInput').addEventListener('keypress', (e) => {
 // Scroll-driven animations
 window.addEventListener('scroll', () => {
     const bunny = document.querySelector('.bunny');
+    const demoChat = document.getElementById('demoChat');
     const scrollY = window.scrollY; // How far we’ve scrolled from the top
     const scrollRange = 200; // Distance to complete the movement
     const progress = Math.min(1, scrollY / scrollRange); // Progress from 0 to 1
     const bunnyPosition = -180 + (progress * 180); // Move from -180px to 0px
     bunny.style.bottom = `${bunnyPosition}px`; // Update the position
+
+    // Show/hide demo chat based on bunny position
+    if (bunnyPosition >= 0) {
+        demoChat.style.display = 'block'; // Show when bunny is at bottom: 0px
+    } else {
+        demoChat.style.display = 'none'; // Hide when bunny is below bottom: 0px
+    }
 
     // Footer fade-in
     const welcomeSection = document.querySelector('.welcome');
