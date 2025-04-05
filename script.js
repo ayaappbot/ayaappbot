@@ -16,7 +16,9 @@ window.addEventListener('scroll', () => {
     const welcomeSection = document.querySelector('.welcome');
     const footer = document.querySelector('#footer');
     const bunny = document.querySelector('.bunny');
+    const welcomeTop = welcomeSection.getBoundingClientRect().top;
     const welcomeBottom = welcomeSection.getBoundingClientRect().bottom;
+    const welcomeHeight = welcomeSection.offsetHeight;
     const viewportHeight = window.innerHeight;
     const triggerPointFooter = viewportHeight * 0.7; // Footer fade-in at 70% of viewport height
 
@@ -28,11 +30,8 @@ window.addEventListener('scroll', () => {
     }
 
     // Bunny scroll-driven slide-up
-    // Calculate how far the grass (bottom of welcome section) is from the bottom of the viewport
-    const grassPosition = Math.max(0, welcomeBottom); // Distance from bottom of viewport
-    const scrollRange = viewportHeight * 0.5; // Reduced to speed up the movement
-    // Invert the scroll progress: when grassPosition decreases (scroll down), progress increases
-    const scrollProgress = Math.max(0, Math.min(1, (scrollRange - grassPosition) / scrollRange));
+    // Calculate scroll progress based on the welcome section's position
+    const scrollProgress = Math.max(0, Math.min(1, (viewportHeight - welcomeTop) / (welcomeHeight + viewportHeight)));
     // Map scroll progress (0 to 1) to bunny position (-180px to 0px)
     const bunnyPosition = -180 + (scrollProgress * 180); // Moves from -180px to 0px
     bunny.style.bottom = `${bunnyPosition}px`;
