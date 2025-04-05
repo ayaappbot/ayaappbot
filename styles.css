@@ -25,11 +25,23 @@ header p {
 
 .welcome {
     padding: 40px 20px;
+    position: relative; /* Allows absolute positioning of the bunny */
+    min-height: 300px; /* Ensures enough space for the bunny */
+    background: linear-gradient(to bottom, #FFE8E0 80%, #E6F0FA 100%); /* Light peach to light blue transition */
+}
+
+.welcome .bunny {
+    width: 200px; /* Larger size for better visibility */
+    position: absolute;
+    bottom: 0; /* Aligns the bottom of the bunny with the bottom of the section */
+    left: 50%;
+    transform: translateX(-50%); /* Centers the bunny horizontally */
 }
 
 .welcome h2 {
     font-size: 2em;
     color: #4A4A4A;
+    margin-top: 220px; /* Adds space below the bunny */
 }
 
 .welcome p {
