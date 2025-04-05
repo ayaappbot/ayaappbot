@@ -30,18 +30,36 @@ document.getElementById('demoInput').addEventListener('keypress', (e) => {
     }
 });
 
+// Click handler for "Try Aya" bubble on mobile
+document.getElementById('demoChatTry').addEventListener('click', () => {
+    const bunny = document.querySelector('.bunny');
+    const demoChatTry = document.getElementById('demoChatTry');
+    const demoChat = document.getElementById('demoChat');
+    
+    // Slide bunny to the left
+    bunny.style.left = '20%'; // Move bunny to the left
+    bunny.style.transform = 'translateX(0)'; // Remove centering transform
+    
+    // Hide "Try Aya" bubble and show full chat
+    demoChatTry.style.display = 'none';
+    demoChat.style.display = 'block';
+    demoChat.style.opacity = '1'; // Ensure full chat is fully visible
+});
+
 // Scroll-driven animations
 window.addEventListener('scroll', () => {
     const bunny = document.querySelector('.bunny');
     const demoChat = document.getElementById('demoChat');
+    const demoChatTry = document.getElementById('demoChatTry');
     const scrollY = window.scrollY; // How far we’ve scrolled from the top
     const scrollRange = 200; // Distance to complete the movement
     const progress = Math.min(1, scrollY / scrollRange); // Progress from 0 to 1
     const bunnyPosition = -180 + (progress * 180); // Move from -180px to 0px
     bunny.style.bottom = `${bunnyPosition}px`; // Update the position
 
-    // Fade in demo chat using the same progress
-    demoChat.style.opacity = progress; // Opacity from 0 to 1 as bunny moves
+    // Fade in demo chat (desktop) or "Try Aya" bubble (mobile) using the same progress
+    demoChat.style.opacity = progress; // For desktop
+    demoChatTry.style.opacity = progress; // For mobile
 
     // Footer fade-in
     const welcomeSection = document.querySelector('.welcome');
