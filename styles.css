@@ -65,17 +65,18 @@ main {
 }
 
 .demo-chat {
-    display: none; /* Hidden by default until bunny reaches full position */
+    opacity: 0; /* Start fully transparent */
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 250px;
     max-width: 90%;
     position: absolute;
-    bottom: 80px; /* Moved up from 50px to 80px */
+    bottom: 80px; /* Positioned above the bunny's bottom */
     left: calc(50% + 100px); /* Right of the bunny (bunny width/2 = 100px) */
     transform: translateX(0); /* No centering, aligned to the right of bunny */
     z-index: 3; /* Above bunny and grass */
+    transition: opacity 0.1s linear; /* Smooth fade-in tied to scroll */
 }
 
 .demo-chat::before {
@@ -298,7 +299,7 @@ footer.visible {
 
     .demo-chat {
         width: 200px; /* Smaller width on mobile */
-        bottom: 60px; /* Moved up from 40px to 60px for mobile */
+        bottom: 60px; /* Position for mobile */
         left: calc(50% + 80px); /* Adjust for smaller bunny width on mobile */
     }
 }
