@@ -139,8 +139,7 @@ footer {
 /* Media query for mobile */
 @media (max-width: 768px) {
     .welcome .grass {
-        height: 100px; /* Matches assumed desktop height, adjust as needed */
-        width: 100%; /* Keeps full width */
-        object-fit: cover; /* Crops left and right sides */
+        height: 100px; /* Fixed height to match desktop, adjust as needed */
+        width: 100%; /* Full width, sides will overflow */
     }
 }
