@@ -41,7 +41,7 @@ header p {
 .welcome h2 {
     font-size: 2em;
     color: #4A4A4A;
-    margin-top: 220px; /* Adds space below the bunny */
+    margin-top: 20px; /* Reduced from 220px to move text up above bunny's ears */
 }
 
 .welcome p {
