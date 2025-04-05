@@ -25,7 +25,7 @@ header p {
 
 .welcome {
     padding: 40px 20px;
-    position: relative; /* Allows absolute positioning of the bunny */
+    position: relative; /* Allows absolute positioning of the bunny and grass */
     min-height: 500px; /* Increased height for desktop visibility */
     background: linear-gradient(to bottom, #FFE8E0 70%, #E6F0FA 100%); /* Adjusted gradient for more visible light blue */
 }
@@ -36,6 +36,15 @@ header p {
     bottom: 0; /* Aligns the bottom of the bunny with the bottom of the section */
     left: 50%;
     transform: translateX(-50%); /* Centers the bunny horizontally */
+    z-index: 1; /* Bunny behind grass */
+}
+
+.welcome .grass {
+    width: 100%; /* Stretches full width of the screen */
+    position: absolute;
+    bottom: 0; /* Aligns bottom of grass with bottom of section */
+    left: 0; /* Starts at the left edge */
+    z-index: 2; /* Grass in front of bunny */
 }
 
 .welcome h2 {
