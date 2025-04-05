@@ -16,13 +16,14 @@ window.addEventListener('scroll', () => {
     const welcomeSection = document.querySelector('.welcome');
     const footer = document.querySelector('#footer');
     const bunny = document.querySelector('.bunny');
-    const welcomeTop = welcomeSection.getBoundingClientRect().top;
-    const welcomeBottom = welcomeSection.getBoundingClientRect().bottom;
-    const welcomeHeight = welcomeSection.offsetHeight;
     const viewportHeight = window.innerHeight;
-    const triggerPointFooter = viewportHeight * 0.7; // Footer fade-in at 70% of viewport height
+    const welcomeHeight = welcomeSection.offsetHeight;
+    const welcomeTop = welcomeSection.offsetTop;
+    const scrollY = window.scrollY;
+    const triggerPointFooter = viewportHeight * 0.7;
 
     // Footer fade-in
+    const welcomeBottom = welcomeSection.getBoundingClientRect().bottom;
     if (welcomeBottom <= triggerPointFooter) {
         footer.classList.add('visible');
     } else {
@@ -30,13 +31,16 @@ window.addEventListener('scroll', () => {
     }
 
     // Bunny scroll-driven slide-up
-    // Calculate the initial top position of the welcome section (accounting for header)
-    const headerHeight = document.querySelector('header').offsetHeight;
-    // Calculate scroll progress based on the welcome section's position
-    const scrollProgress = Math.max(0, Math.min(1, (viewportHeight - welcomeTop - headerHeight) / (welcomeHeight + viewportHeight)));
-    // Set movement range to 450px (2.5x the original 180px range)
-    const bunnyPosition = -180 + (scrollProgress * 450); // Moves 2.5 times as far per scroll
-    // Cap the position at bottom: 0px to align with the grass
-    const finalPosition = Math.min(0, bunnyPosition);
-    bunny.style.bottom = `${finalPosition}px`;
+    const startScroll = welcomeTop; // Start when welcome section top hits viewport top
+    const endScroll = welcomeTop + welcomeHeight - viewportHeight; // End when welcome section bottom leaves viewport
+    let progress = 0;
+
+    if (scrollY >= startScroll) {
+        progress = (scrollY - startScroll) / (endScroll - startScroll);
+        progress = Math.max(0, Math.min(1, progress)); // Clamp between 0 and 1
+    }
+
+    // Move bunny from -180px to 0px over the scroll range
+    const bunnyPosition = -180 + (progress * 180); // Range is 180px
+    bunny.style.bottom = `${bunnyPosition}px`;
 });
