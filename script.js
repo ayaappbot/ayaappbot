@@ -15,12 +15,12 @@ function sendMessage() {
 window.addEventListener('scroll', () => {
     const bunny = document.querySelector('.bunny');
     const scrollY = window.scrollY; // How far we’ve scrolled from the top
-    const scrollRange = 200; // Reduced from 400 to make bunny move more per scroll
+    const scrollRange = 200; // Distance to complete the movement
     const progress = Math.min(1, scrollY / scrollRange); // Progress from 0 to 1
     const bunnyPosition = -180 + (progress * 180); // Move from -180px to 0px
     bunny.style.bottom = `${bunnyPosition}px`; // Update the position
 
-    // Footer fade-in (unchanged)
+    // Footer fade-in
     const welcomeSection = document.querySelector('.welcome');
     const footer = document.querySelector('#footer');
     const welcomeBottom = welcomeSection.getBoundingClientRect().bottom;
