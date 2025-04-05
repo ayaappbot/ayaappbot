@@ -34,10 +34,15 @@ header p {
 .welcome .bunny {
     width: 200px; /* Larger size for better visibility */
     position: absolute;
-    bottom: 0; /* Aligns the bottom of the bunny with the bottom of the section */
+    bottom: -200px; /* Start off-screen below */
     left: 50%;
     transform: translateX(-50%); /* Centers the bunny horizontally */
     z-index: 1; /* Bunny behind grass */
+    transition: bottom 0.8s ease-in-out; /* Smooth slide-up animation */
+}
+
+.welcome .bunny.visible {
+    bottom: 0; /* Final position */
 }
 
 .welcome .grass {
