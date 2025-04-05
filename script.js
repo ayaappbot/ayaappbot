@@ -40,12 +40,8 @@ window.addEventListener('scroll', () => {
     const bunnyPosition = -180 + (progress * 180); // Move from -180px to 0px
     bunny.style.bottom = `${bunnyPosition}px`; // Update the position
 
-    // Show/hide demo chat based on bunny position
-    if (bunnyPosition >= 0) {
-        demoChat.style.display = 'block'; // Show when bunny is at bottom: 0px
-    } else {
-        demoChat.style.display = 'none'; // Hide when bunny is below bottom: 0px
-    }
+    // Fade in demo chat using the same progress
+    demoChat.style.opacity = progress; // Opacity from 0 to 1 as bunny moves
 
     // Footer fade-in
     const welcomeSection = document.querySelector('.welcome');
