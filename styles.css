@@ -105,6 +105,50 @@ main {
     margin: 0;
 }
 
+.timeline {
+    padding: 40px 20px;
+    background-color: #F9E4E4; /* Pale pink background */
+}
+
+.timeline h2 {
+    font-size: 2em;
+    color: #4A4A4A;
+    margin-bottom: 10px;
+}
+
+.timeline p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.timeline-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+}
+
+.timeline-item {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    min-width: 200px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    scroll-snap-align: center;
+}
+
+.timeline-item h3 {
+    font-size: 1.2em;
+    margin: 0 0 10px;
+    color: #4A4A4A;
+}
+
+.timeline-item p {
+    font-size: 0.9em;
+    margin: 0;
+}
+
 footer {
     background-color: #F9E4E4;
     padding: 10px;
