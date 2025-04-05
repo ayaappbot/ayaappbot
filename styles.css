@@ -26,7 +26,7 @@ header p {
 .welcome {
     padding: 40px 20px;
     position: relative; /* Allows absolute positioning of the bunny and grass */
-    min-height: 500px; /* Reduced from 800px to shorten the gap */
+    min-height: 400px; /* Reduced from 500px to tighten the gap */
     background: linear-gradient(to bottom, #FFE8E0 50%, #D1E5F7 100%); /* Adjusted gradient: blue starts earlier, slightly darker */
     overflow: hidden; /* Crops any overflow on mobile */
 }
@@ -34,7 +34,7 @@ header p {
 .welcome .bunny {
     width: 200px; /* Larger size for better visibility */
     position: absolute;
-    bottom: -200px; /* Start off-screen below */
+    bottom: -300px; /* Start further down off-screen */
     left: 50%;
     transform: translateX(-50%); /* Centers the bunny horizontally */
     z-index: 1; /* Bunny behind grass */
@@ -51,12 +51,12 @@ header p {
 .welcome h2 {
     font-size: 2em;
     color: #4A4A4A;
-    margin-top: 10px; /* Reduced from 20px to shorten the gap */
+    margin-top: 5px; /* Reduced from 10px to tighten the gap */
 }
 
 .welcome p {
     font-size: 1.1em;
-    margin: 5px 0; /* Reduced from 10px to shorten the gap */
+    margin: 3px 0; /* Reduced from 5px to tighten the gap */
 }
 
 .get-started {
