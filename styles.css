@@ -65,50 +65,66 @@ main {
 }
 
 .demo-chat {
+    display: none; /* Hidden by default until bunny reaches full position */
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 250px;
     max-width: 90%;
-    margin: 20px auto;
-    position: relative;
+    position: absolute;
+    bottom: 50px; /* Positioned above the bunny's bottom */
+    left: calc(50% + 100px); /* Right of the bunny (bunny width/2 = 100px) */
+    transform: translateX(0); /* No centering, aligned to the right of bunny */
     z-index: 3; /* Above bunny and grass */
+}
+
+.demo-chat::before {
+    content: '';
+    position: absolute;
+    bottom: 10px; /* Tail position */
+    left: -10px; /* Tail points to bunny */
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #fff; /* Tail color matches chat background */
 }
 
 .demo-header {
     background-color: #F9E4E4;
-    padding: 10px;
-    border-radius: 10px 10px 0 0;
-    font-size: 1.2em;
+    padding: 8px;
+    border-radius: 15px 15px 0 0;
+    font-size: 1em;
     color: #4A4A4A;
 }
 
 .demo-messages {
-    padding: 10px;
-    max-height: 150px;
+    padding: 8px;
+    max-height: 120px;
     overflow-y: auto;
     text-align: left;
 }
 
 .demo-messages p {
     margin: 5px 0;
-    font-size: 0.9em;
+    font-size: 0.85em;
 }
 
 #demoInput {
-    width: 70%;
+    width: 65%;
     padding: 5px;
-    margin: 10px 5px 10px 10px;
+    margin: 8px 5px 8px 8px;
     border: 1px solid #4A4A4A;
     border-radius: 20px;
     font-family: 'Quicksand', sans-serif;
+    font-size: 0.85em;
 }
 
 .demo-chat button {
     background-color: #E6F0FA;
     border: none;
     padding: 5px 10px;
-    font-size: 0.9em;
+    font-size: 0.85em;
     font-family: 'Quicksand', sans-serif;
     color: #4A4A4A;
     border-radius: 20px;
@@ -278,5 +294,11 @@ footer.visible {
 
     main {
         padding-bottom: 80px; /* Extra padding on mobile to account for smaller viewport */
+    }
+
+    .demo-chat {
+        width: 200px; /* Smaller width on mobile */
+        bottom: 40px; /* Adjust position for smaller screens */
+        left: calc(50% + 80px); /* Adjust for smaller bunny width on mobile */
     }
 }
