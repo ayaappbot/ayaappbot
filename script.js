@@ -15,17 +15,22 @@ function sendMessage() {
 window.addEventListener('scroll', () => {
     const welcomeSection = document.querySelector('.welcome');
     const footer = document.querySelector('#footer');
+    const bunny = document.querySelector('.bunny');
+    const welcomeTop = welcomeSection.getBoundingClientRect().top;
     const welcomeBottom = welcomeSection.getBoundingClientRect().bottom;
     const viewportHeight = window.innerHeight;
-    const triggerPoint = viewportHeight * 0.7; // Adjusted to 70% of viewport height (higher up)
+    const triggerPointFooter = viewportHeight * 0.7; // Adjusted to 70% of viewport height (higher up)
+    const triggerPointBunny = viewportHeight * 0.5; // Trigger bunny animation when welcome section is halfway into view
 
-    // Debug: Log values to check on desktop
-    console.log('welcomeBottom:', welcomeBottom, 'triggerPoint:', triggerPoint);
-
-    // When the bottom of the welcome section (grass) reaches 70% up the viewport
-    if (welcomeBottom <= triggerPoint) {
+    // Footer fade-in
+    if (welcomeBottom <= triggerPointFooter) {
         footer.classList.add('visible');
     } else {
         footer.classList.remove('visible');
+    }
+
+    // Bunny slide-up animation
+    if (welcomeTop <= triggerPointBunny) {
+        bunny.classList.add('visible');
     }
 });
