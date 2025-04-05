@@ -129,6 +129,25 @@ main {
     scroll-snap-type: x mandatory;
 }
 
+/* Custom scrollbar styles for Webkit browsers (Chrome, Safari, Edge) */
+.timeline-container::-webkit-scrollbar {
+    height: 8px; /* Height of the horizontal scrollbar */
+}
+
+.timeline-container::-webkit-scrollbar-track {
+    background: #F9E4E4; /* Pale pink to match the section background */
+    border-radius: 10px;
+}
+
+.timeline-container::-webkit-scrollbar-thumb {
+    background: #E6F0FA; /* Light blue to match hover effects */
+    border-radius: 10px;
+}
+
+.timeline-container::-webkit-scrollbar-thumb:hover {
+    background: #D1E5F7; /* Slightly darker blue on hover */
+}
+
 .timeline-item {
     background-color: #fff;
     border-radius: 10px;
