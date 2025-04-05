@@ -32,7 +32,7 @@ window.addEventListener('scroll', () => {
     // Bunny scroll-driven slide-up
     // Calculate how far the welcome section is from the top of the viewport
     const scrollProgress = Math.max(0, Math.min(1, (viewportHeight - welcomeTop) / welcomeHeight));
-    // Map scroll progress (0 to 1) to bunny position (-200px to 0px)
-    const bunnyPosition = -200 + (scrollProgress * 200); // Moves from -200px to 0px
+    // Map scroll progress (0 to 1) to bunny position (-300px to 0px)
+    const bunnyPosition = -300 + (scrollProgress * 300); // Moves from -300px to 0px
     bunny.style.bottom = `${bunnyPosition}px`;
 });
