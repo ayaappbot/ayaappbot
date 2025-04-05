@@ -38,7 +38,7 @@ header p {
     left: 50%;
     transform: translateX(-50%); /* Centers the bunny horizontally */
     z-index: 1; /* Bunny behind grass */
-    transition: bottom 0.2s ease-out; /* Faster transition for quicker movement */
+    transition: bottom 0.1s linear; /* Smoother, linear transition for continuous scroll movement */
 }
 
 .welcome .grass {
