@@ -11,16 +11,16 @@ function sendMessage() {
     document.getElementById('chatInput').value = '';
 }
 
-// Footer fade-in on scroll
+// Scroll-driven animations
 window.addEventListener('scroll', () => {
     const welcomeSection = document.querySelector('.welcome');
     const footer = document.querySelector('#footer');
     const bunny = document.querySelector('.bunny');
     const welcomeTop = welcomeSection.getBoundingClientRect().top;
     const welcomeBottom = welcomeSection.getBoundingClientRect().bottom;
+    const welcomeHeight = welcomeSection.offsetHeight;
     const viewportHeight = window.innerHeight;
-    const triggerPointFooter = viewportHeight * 0.7; // Adjusted to 70% of viewport height (higher up)
-    const triggerPointBunny = viewportHeight * 0.5; // Trigger bunny animation when welcome section is halfway into view
+    const triggerPointFooter = viewportHeight * 0.7; // Footer fade-in at 70% of viewport height
 
     // Footer fade-in
     if (welcomeBottom <= triggerPointFooter) {
@@ -29,8 +29,10 @@ window.addEventListener('scroll', () => {
         footer.classList.remove('visible');
     }
 
-    // Bunny slide-up animation
-    if (welcomeTop <= triggerPointBunny) {
-        bunny.classList.add('visible');
-    }
+    // Bunny scroll-driven slide-up
+    // Calculate how far the welcome section is from the top of the viewport
+    const scrollProgress = Math.max(0, Math.min(1, (viewportHeight - welcomeTop) / welcomeHeight));
+    // Map scroll progress (0 to 1) to bunny position (-200px to 0px)
+    const bunnyPosition = -200 + (scrollProgress * 200); // Moves from -200px to 0px
+    bunny.style.bottom = `${bunnyPosition}px`;
 });
