@@ -88,12 +88,12 @@ main {
     content: '';
     position: absolute;
     bottom: 7px; /* Centered vertically on the bubble */
-    left: -10px; /* Adjusted to connect seamlessly */
+    left: -9px; /* Adjusted to connect seamlessly */
     width: 0;
     height: 0;
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
-    border-right: 10px solid #fff; /* Reduced to ensure connection */
+    border-right: 10px solid #fff; /* Matches left adjustment */
 }
 
 .demo-chat {
@@ -115,12 +115,12 @@ main {
     content: '';
     position: absolute;
     bottom: 10px; /* Tail position */
-    left: -10px; /* Tail points to bunny */
+    left: -9px; /* Adjusted to connect seamlessly */
     width: 0;
     height: 0;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
-    border-right: 10px solid #fff; /* Tail color matches chat background */
+    border-right: 10px solid #fff; /* Matches left adjustment */
 }
 
 .demo-header {
@@ -335,11 +335,11 @@ footer.visible {
     }
 
     .demo-chat-try::before {
-        bottom: 7px; /* Adjusted to center vertically */
-        left: -10px; /* Adjusted to connect seamlessly */
+        bottom: 7px; /* Centered vertically */
+        left: -9px; /* Adjusted to connect seamlessly */
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
-        border-right: 10px solid #fff; /* Reduced to ensure connection */
+        border-right: 10px solid #fff; /* Matches left adjustment */
     }
 
     .demo-chat {
@@ -347,6 +347,14 @@ footer.visible {
         width: 200px; /* Smaller width on mobile */
         bottom: 60px; /* Position for mobile */
         left: calc(50% + 80px); /* Adjust for smaller bunny width on mobile */
+    }
+
+    .demo-chat::before {
+        bottom: 10px; /* Tail position */
+        left: -9px; /* Adjusted to connect seamlessly */
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-right: 10px solid #fff; /* Matches left adjustment */
     }
 }
 
