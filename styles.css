@@ -26,8 +26,8 @@ header p {
 .welcome {
     padding: 40px 20px;
     position: relative; /* Allows absolute positioning of the bunny and grass */
-    min-height: 500px; /* Increased height for desktop visibility */
-    background: linear-gradient(to bottom, #FFE8E0 70%, #E6F0FA 100%); /* Adjusted gradient for more visible light blue */
+    min-height: 600px; /* Increased to ensure scroll triggering on desktop */
+    background: linear-gradient(to bottom, #FFE8E0 50%, #D1E5F7 100%); /* Adjusted gradient: blue starts earlier, slightly darker */
     overflow: hidden; /* Crops any overflow on mobile */
 }
 
