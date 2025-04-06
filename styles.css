@@ -98,8 +98,8 @@ main {
 .demo-chat-try::before {
     content: '';
     position: absolute;
-    bottom: 12px; /* Adjusted to align with the taller bubble */
-    left: -9px; /* Slightly adjusted to touch the edge */
+    bottom: 14px; /* Adjusted to move the triangle up a tad more */
+    left: -9px;
     width: 0;
     height: 0;
     border-top: 5px solid transparent;
