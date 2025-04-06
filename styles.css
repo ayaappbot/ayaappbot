@@ -76,7 +76,7 @@ main {
     opacity: 0;
     background-color: #fff;
     border-radius: 20px;
-    padding: 5px 10px;
+    padding: 8px 12px; /* Slightly increased padding for stacked text */
     position: absolute;
     bottom: 80px;
     left: calc(50% + 80px);
@@ -90,6 +90,9 @@ main {
 .demo-chat-try span {
     font-size: 0.9em;
     color: #4A4A4A;
+    display: block; /* Make span a block element for stacking */
+    text-align: center; /* Center the text */
+    line-height: 1.2; /* Adjust line height for better spacing */
 }
 
 .demo-chat-try::before {
@@ -220,7 +223,7 @@ main {
 }
 
 .tabs-section {
-    padding: 40px 0; /* Remove horizontal padding to extend to edges */
+    padding: 40px 0;
     background-color: #F9E4E4;
     max-width: 100%;
     box-sizing: border-box;
@@ -267,7 +270,7 @@ main {
     max-width: 100%;
     overflow-x: hidden;
     box-sizing: border-box;
-    padding: 0 10px; /* Reduced padding to bring content closer to edges */
+    padding: 0 10px;
 }
 
 .tab-pane {
@@ -278,7 +281,7 @@ main {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 0; /* Adjust padding to fit content */
+    padding: 20px 0;
     box-sizing: border-box;
 }
 
@@ -301,8 +304,8 @@ main {
 .timeline-container, .community-topics, .resources-container, .self-care-tools {
     display: flex;
     overflow-x: auto;
-    gap: 10px; /* Reduced gap for better fit */
-    padding: 0 10px 10px 10px; /* Add padding to ensure cards aren't cut off */
+    gap: 10px;
+    padding: 0 10px 10px 10px;
     scroll-snap-type: x mandatory;
     max-width: 100%;
     box-sizing: border-box;
@@ -472,7 +475,7 @@ footer.visible {
     }
 
     .tabs-section {
-        padding: 40px 0; /* Keep padding 0 on sides */
+        padding: 40px 0;
     }
 
     .tabs {
@@ -487,7 +490,7 @@ footer.visible {
     }
 
     .tab-content {
-        padding: 0 5px; /* Reduced padding to bring content closer to edges */
+        padding: 0 5px;
     }
 
     .tab-pane {
@@ -495,12 +498,12 @@ footer.visible {
     }
 
     .timeline-container, .community-topics, .resources-container, .self-care-tools {
-        padding: 0 5px 10px 5px; /* Reduced padding to fit cards */
-        gap: 5px; /* Reduced gap for better fit */
+        padding: 0 5px 10px 5px;
+        gap: 5px;
     }
 
     .timeline-item, .community-item, .resource-item, .self-care-item {
-        min-width: 180px; /* Slightly smaller to fit better */
+        min-width: 180px;
     }
 }
 
