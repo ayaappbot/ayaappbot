@@ -39,8 +39,7 @@ main {
     width: 200px; /* Larger size for better visibility */
     position: absolute;
     bottom: -180px; /* Start just below the grass (bunny is 200px tall, so top 20px peeks out) */
-    left: 50%;
-    transform: translateX(-50%); /* Centers the bunny horizontally */
+    left: 50%; /* Initial position, will be overridden by JS */
     z-index: 1; /* Bunny behind grass */
     transition: bottom 0.1s linear, left 0.5s ease-in-out; /* Add transition for left movement */
 }
