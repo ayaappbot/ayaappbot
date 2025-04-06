@@ -113,4 +113,32 @@ window.addEventListener('scroll', () => {
     } else {
         footer.classList.remove('visible');
     }
+
+    // Bottle scroll effect on mobile
+    if (viewportWidth <= 768) { // Only on mobile
+        const features = document.querySelectorAll('.feature');
+        const viewportCenter = viewportHeight / 2; // Middle of the viewport
+
+        features.forEach(feature => {
+            const bottle = feature.querySelector('.bottle-hover');
+            const rect = feature.getBoundingClientRect();
+            const featureCenter = rect.top + rect.height / 2; // Center of the feature card
+
+            // Calculate distance from the center of the viewport
+            const distanceFromCenter = Math.abs(viewportCenter - featureCenter);
+            const maxDistance = viewportHeight / 2; // Max distance for full fade
+
+            // Calculate opacity based on distance (1 when in center, 0 when at edges)
+            const opacity = Math.max(0, 1 - (distanceFromCenter / maxDistance));
+
+            // Show the bottle if opacity is greater than 0
+            if (opacity > 0) {
+                bottle.classList.add('active');
+                bottle.style.opacity = opacity;
+            } else {
+                bottle.classList.remove('active');
+                bottle.style.opacity = 0;
+            }
+        });
+    }
 });
