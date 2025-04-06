@@ -62,10 +62,14 @@ document.getElementById('demoChatTry').addEventListener('click', () => {
         // Slide demo chat to the left to match bunny
         demoChat.style.left = `${demoChatTargetLeft}px`;
         
-        // Hide "Try Aya" bubble and show full chat
+        // Hide "Try Aya" bubble
         demoChatTry.style.display = 'none';
+        
+        // Show the demo chat with a fade-in effect
         demoChat.style.display = 'block';
-        demoChat.style.opacity = '1'; // Ensure full chat is fully visible
+        setTimeout(() => {
+            demoChat.style.opacity = '1'; // Fade in the chat bubble
+        }, 200); // Delay the fade-in slightly to sync with the bunny's slide
         
         // Mark that the bunny has been moved
         bunnyMoved = true;
