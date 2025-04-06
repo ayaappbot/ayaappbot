@@ -188,7 +188,6 @@ main {
     gap: 20px;
     padding: 20px;
     flex-wrap: wrap;
-    position: relative; /* For positioning the bottle on mobile */
 }
 
 .feature {
@@ -197,7 +196,6 @@ main {
     padding: 20px;
     width: 200px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: relative; /* For positioning the bottle on desktop */
 }
 
 .feature h3 {
@@ -208,23 +206,6 @@ main {
 .feature p {
     font-size: 0.9em;
     margin: 0;
-}
-
-.bottle-hover {
-    display: none; /* Hidden by default, shown on hover on desktop */
-    position: absolute;
-    bottom: 5px; /* Moved down a bit (was 10px) */
-    left: 2px; /* Moved more to the left (was 5px) */
-    z-index: 1;
-}
-
-.bottle-hover .bottle {
-    width: 50px; /* Adjust size as needed */
-    height: auto;
-}
-
-.feature:hover .bottle-hover {
-    display: block; /* Show bottle on hover on desktop */
 }
 
 .timeline {
@@ -373,24 +354,6 @@ footer.visible {
         border-top: 10px solid transparent;
         border-bottom: 10px solid transparent;
         border-right: 10px solid #fff; /* Matches left adjustment */
-    }
-
-    /* Hide the hover effect on mobile */
-    .feature:hover .bottle-hover {
-        display: none; /* Disable hover effect on mobile */
-    }
-
-    .bottle-hover {
-        display: none; /* Hidden by default on mobile, controlled by JS */
-        position: fixed; /* Position on the left side of the screen */
-        left: 10px; /* Position on the left side */
-        z-index: 10; /* Above other elements */
-        opacity: 0; /* Start fully transparent */
-        transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out; /* Smooth fade and position change */
-    }
-
-    .bottle-hover.active {
-        display: block; /* Show when active */
     }
 }
 
