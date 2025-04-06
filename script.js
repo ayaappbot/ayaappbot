@@ -36,14 +36,21 @@ document.getElementById('demoChatTry').addEventListener('click', () => {
     const demoChatTry = document.getElementById('demoChatTry');
     const demoChat = document.getElementById('demoChat');
     
-    // Slide bunny to the left
-    bunny.style.left = '20%'; // Move bunny to the left
-    bunny.style.transform = 'translateX(0)'; // Remove centering transform
+    // Ensure bunny starts from the center before sliding
+    bunny.style.left = '50%'; // Explicitly set to center
+    bunny.style.transform = 'translateX(-50%)'; // Keep centering transform
     
-    // Hide "Try Aya" bubble and show full chat
-    demoChatTry.style.display = 'none';
-    demoChat.style.display = 'block';
-    demoChat.style.opacity = '1'; // Ensure full chat is fully visible
+    // Use a small timeout to ensure the starting position is applied before the transition
+    setTimeout(() => {
+        // Slide bunny to the left
+        bunny.style.left = '20%'; // Move bunny to the left
+        bunny.style.transform = 'translateX(0)'; // Remove centering transform
+        
+        // Hide "Try Aya" bubble and show full chat
+        demoChatTry.style.display = 'none';
+        demoChat.style.display = 'block';
+        demoChat.style.opacity = '1'; // Ensure full chat is fully visible
+    }, 10); // Small delay to ensure the initial position is set
 });
 
 // Scroll-driven animations
