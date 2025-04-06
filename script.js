@@ -36,15 +36,19 @@ document.getElementById('demoChatTry').addEventListener('click', () => {
     const demoChatTry = document.getElementById('demoChatTry');
     const demoChat = document.getElementById('demoChat');
     
-    // Ensure bunny starts from the center before sliding
-    bunny.style.left = '50%'; // Explicitly set to center
-    bunny.style.transform = 'translateX(-50%)'; // Keep centering transform
+    // Get the viewport width to calculate pixel positions
+    const viewportWidth = window.innerWidth;
+    const bunnyWidth = bunny.offsetWidth; // Bunny width (200px)
+    const centerPosition = (viewportWidth - bunnyWidth) / 2; // Center in pixels
+    const leftPosition = viewportWidth * 0.2 - bunnyWidth / 2; // 20% from left in pixels, adjusted for bunny width
+    
+    // Set initial position in pixels (center of the screen)
+    bunny.style.left = `${centerPosition}px`;
     
     // Use a small timeout to ensure the starting position is applied before the transition
     setTimeout(() => {
-        // Slide bunny to the left
-        bunny.style.left = '20%'; // Move bunny to the left
-        bunny.style.transform = 'translateX(0)'; // Remove centering transform
+        // Slide bunny to the left (20% from left edge, adjusted for bunny width)
+        bunny.style.left = `${leftPosition}px`;
         
         // Hide "Try Aya" bubble and show full chat
         demoChatTry.style.display = 'none';
@@ -58,6 +62,13 @@ window.addEventListener('scroll', () => {
     const bunny = document.querySelector('.bunny');
     const demoChat = document.getElementById('demoChat');
     const demoChatTry = document.getElementById('demoChatTry');
+    const viewportWidth = window.innerWidth;
+    const bunnyWidth = bunny.offsetWidth; // Bunny width (200px)
+    const centerPosition = (viewportWidth - bunnyWidth) / 2; // Center in pixels
+    
+    // Set bunny's horizontal position to center in pixels
+    bunny.style.left = `${centerPosition}px`;
+    
     const scrollY = window.scrollY; // How far we’ve scrolled from the top
     const scrollRange = 200; // Distance to complete the movement
     const progress = Math.min(1, scrollY / scrollRange); // Progress from 0 to 1
