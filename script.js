@@ -7,7 +7,7 @@ function sendMessage() {
     const input = document.getElementById('chatInput').value;
     const messages = document.getElementById('chatMessages');
     messages.innerHTML += `<p>You: ${input}</p>`;
-    messages.innerHTML += `<p>Aya: Let me help you with that!</p>`; // Placeholder response
+    messages.innerHTML += `<p>Aya: Let me help you with that!</p>`;
     document.getElementById('chatInput').value = '';
     messages.scrollTop = messages.scrollHeight;
 }
@@ -98,12 +98,27 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Tab functionality
+document.querySelectorAll('.tab-button').forEach(button => {
+    button.addEventListener('click', () => {
+        const tabId = button.getAttribute('data-tab');
+        
+        // Remove active class from all buttons and panes
+        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+        
+        // Add active class to clicked button and corresponding pane
+        button.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+    });
+});
+
 // Due Date Calculator
 document.getElementById('dueDateForm').addEventListener('submit', (e) => {
     e.preventDefault();
     const lmp = new Date(document.getElementById('lmp').value);
     const dueDate = new Date(lmp);
-    dueDate.setDate(lmp.getDate() + 280); // 280 days from LMP
+    dueDate.setDate(lmp.getDate() + 280);
     const today = new Date();
     const weeksPregnant = Math.floor((today - lmp) / (1000 * 60 * 60 * 24 * 7));
     
