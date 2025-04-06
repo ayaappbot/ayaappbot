@@ -208,23 +208,23 @@ main {
     margin: 0;
 }
 
-.timeline {
+.timeline, .due-date-calculator, .baby-tracker, .community, .resources, .self-care {
     padding: 40px 20px;
     background-color: #F9E4E4; /* Pale pink background */
 }
 
-.timeline h2 {
+.timeline h2, .due-date-calculator h2, .baby-tracker h2, .community h2, .resources h2, .self-care h2 {
     font-size: 2em;
     color: #4A4A4A;
     margin-bottom: 10px;
 }
 
-.timeline p {
+.timeline p, .due-date-calculator p, .baby-tracker p, .community p, .resources p, .self-care p {
     font-size: 1.1em;
     margin-bottom: 20px;
 }
 
-.timeline-container {
+.timeline-container, .community-topics, .resources-container, .self-care-tools {
     display: flex;
     overflow-x: auto;
     gap: 20px;
@@ -232,26 +232,25 @@ main {
     scroll-snap-type: x mandatory;
 }
 
-/* Custom scrollbar styles for Webkit browsers (Chrome, Safari, Edge) */
-.timeline-container::-webkit-scrollbar {
-    height: 8px; /* Height of the horizontal scrollbar */
+.timeline-container::-webkit-scrollbar, .community-topics::-webkit-scrollbar, .resources-container::-webkit-scrollbar, .self-care-tools::-webkit-scrollbar {
+    height: 8px;
 }
 
-.timeline-container::-webkit-scrollbar-track {
-    background: #F9E4E4; /* Pale pink to match the section background */
+.timeline-container::-webkit-scrollbar-track, .community-topics::-webkit-scrollbar-track, .resources-container::-webkit-scrollbar-track, .self-care-tools::-webkit-scrollbar-track {
+    background: #F9E4E4;
     border-radius: 10px;
 }
 
-.timeline-container::-webkit-scrollbar-thumb {
-    background: #E6F0FA; /* Light blue to match hover effects */
+.timeline-container::-webkit-scrollbar-thumb, .community-topics::-webkit-scrollbar-thumb, .resources-container::-webkit-scrollbar-thumb, .self-care-tools::-webkit-scrollbar-thumb {
+    background: #E6F0FA;
     border-radius: 10px;
 }
 
-.timeline-container::-webkit-scrollbar-thumb:hover {
-    background: #D1E5F7; /* Slightly darker blue on hover */
+.timeline-container::-webkit-scrollbar-thumb:hover, .community-topics::-webkit-scrollbar-thumb:hover, .resources-container::-webkit-scrollbar-thumb:hover, .self-care-tools::-webkit-scrollbar-thumb:hover {
+    background: #D1E5F7;
 }
 
-.timeline-item {
+.timeline-item, .community-item, .resource-item, .self-care-item {
     background-color: #fff;
     border-radius: 10px;
     padding: 20px;
@@ -260,15 +259,56 @@ main {
     scroll-snap-align: center;
 }
 
-.timeline-item h3 {
+.timeline-item h3, .community-item h3, .resource-item h3, .self-care-item h3 {
     font-size: 1.2em;
     margin: 0 0 10px;
     color: #4A4A4A;
 }
 
-.timeline-item p {
+.timeline-item p, .community-item p, .resource-item p, .self-care-item p {
     font-size: 0.9em;
     margin: 0;
+}
+
+.due-date-calculator form, .baby-tracker form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.due-date-calculator input, .baby-tracker select, .baby-tracker input {
+    padding: 5px;
+    border: 1px solid #4A4A4A;
+    border-radius: 5px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.due-date-calculator button, .baby-tracker button, .self-care-item button {
+    background-color: #E6F0FA;
+    border: none;
+    padding: 8px 15px;
+    font-size: 0.9em;
+    font-family: 'Quicksand', sans-serif;
+    color: #4A4A4A;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.due-date-calculator button:hover, .baby-tracker button:hover, .self-care-item button:hover {
+    background-color: #D1E5F7;
+}
+
+#dueDateResult, #trackerLog {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #4A4A4A;
+}
+
+.resource-item ul {
+    text-align: left;
+    padding-left: 20px;
+    font-size: 0.9em;
 }
 
 footer {
@@ -333,27 +373,11 @@ footer.visible {
         bottom: 100px; /* Position already set */
     }
 
-    .demo-chat-try::before {
-        bottom: 7px; /* Centered vertically */
-        left: -8px; /* Adjusted to connect seamlessly */
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        border-right: 10px solid #fff; /* Matches left adjustment */
-    }
-
     .demo-chat {
         display: none; /* Hide the full chat by default on mobile */
         width: 200px; /* Smaller width on mobile */
         bottom: 60px; /* Position for mobile */
         left: calc(50% + 80px); /* Adjust for smaller bunny width on mobile */
-    }
-
-    .demo-chat::before {
-        bottom: 10px; /* Tail position */
-        left: -9px; /* Adjusted to connect seamlessly */
-        border-top: 10px solid transparent;
-        border-bottom: 10px solid transparent;
-        border-right: 10px solid #fff; /* Matches left adjustment */
     }
 }
 
