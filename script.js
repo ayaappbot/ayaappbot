@@ -98,7 +98,23 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Tab functionality
+// Function to center the cards in a container on desktop
+function centerCards(container) {
+    if (window.innerWidth <= 768) return; // Skip on mobile (≤768px)
+
+    const containerWidth = container.scrollWidth;
+    const viewportWidth = container.clientWidth;
+    const scrollPosition = (containerWidth - viewportWidth) / 2;
+
+    if (scrollPosition > 0) {
+        container.scrollTo({
+            left: scrollPosition,
+            behavior: 'smooth'
+        });
+    }
+}
+
+// Tab functionality with centering for specific tabs
 document.querySelectorAll('.tab-button').forEach(button => {
     button.addEventListener('click', () => {
         const tabId = button.getAttribute('data-tab');
@@ -107,8 +123,33 @@ document.querySelectorAll('.tab-button').forEach(button => {
         document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
         
         button.classList.add('active');
-        document.getElementById(tabId).classList.add('active');
+        const activePane = document.getElementById(tabId);
+        activePane.classList.add('active');
+
+        // Center cards for specific tabs on desktop
+        if (tabId === 'self-care') {
+            const container = activePane.querySelector('.self-care-tools');
+            if (container) centerCards(container);
+        } else if (tabId === 'resources') {
+            const container = activePane.querySelector('.resources-container');
+            if (container) centerCards(container);
+        } else if (tabId === 'community') {
+            const container = activePane.querySelector('.community-topics');
+            if (container) centerCards(container);
+        }
     });
+});
+
+// Center cards on page load for the default active tab (Pregnancy Journey)
+document.addEventListener('DOMContentLoaded', () => {
+    const defaultTab = document.querySelector('.tab-button.active');
+    if (defaultTab) {
+        const tabId = defaultTab.getAttribute('data-tab');
+        if (tabId === 'timeline') {
+            const container = document.querySelector('#timeline .timeline-container');
+            if (container) centerCards(container);
+        }
+    }
 });
 
 // Due Date Calculator
