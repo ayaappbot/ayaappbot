@@ -118,21 +118,33 @@ window.addEventListener('scroll', () => {
     if (viewportWidth <= 768) { // Only on mobile
         const features = document.querySelectorAll('.feature');
         const viewportCenter = viewportHeight / 2; // Middle of the viewport
+        let closestFeature = null;
+        let minDistance = Infinity;
 
+        // Find the feature closest to the viewport center
+        features.forEach(feature => {
+            const rect = feature.getBoundingClientRect();
+            const featureCenter = rect.top + rect.height / 2; // Center of the feature card
+            const distanceFromCenter = Math.abs(viewportCenter - featureCenter);
+
+            if (distanceFromCenter < minDistance) {
+                minDistance = distanceFromCenter;
+                closestFeature = feature;
+            }
+        });
+
+        // Update bottles based on the closest feature
         features.forEach(feature => {
             const bottle = feature.querySelector('.bottle-hover');
             const rect = feature.getBoundingClientRect();
             const featureCenter = rect.top + rect.height / 2; // Center of the feature card
-
-            // Calculate distance from the center of the viewport
             const distanceFromCenter = Math.abs(viewportCenter - featureCenter);
-            const maxDistance = viewportHeight / 2; // Max distance for full fade
+            const maxDistance = viewportHeight / 4; // Reduced range for sharper fade
 
             // Calculate opacity based on distance (1 when in center, 0 when at edges)
             const opacity = Math.max(0, 1 - (distanceFromCenter / maxDistance));
 
-            // Show the bottle if opacity is greater than 0
-            if (opacity > 0) {
+            if (feature === closestFeature && opacity > 0) {
                 bottle.classList.add('active');
                 bottle.style.opacity = opacity;
             } else {
