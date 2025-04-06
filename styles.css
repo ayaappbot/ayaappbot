@@ -87,7 +87,7 @@ main {
     content: '';
     position: absolute;
     bottom: 7px; /* Centered vertically on the bubble */
-    left: -9px; /* Adjusted to connect seamlessly */
+    left: -10px; /* Moved closer to connect seamlessly */
     width: 0;
     height: 0;
     border-top: 5px solid transparent;
@@ -335,7 +335,7 @@ footer.visible {
 
     .demo-chat-try::before {
         bottom: 7px; /* Centered vertically */
-        left: -9px; /* Adjusted to connect seamlessly */
+        left: -10px; /* Moved closer to connect seamlessly */
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         border-right: 10px solid #fff; /* Matches left adjustment */
