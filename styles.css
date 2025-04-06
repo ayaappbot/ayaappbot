@@ -31,51 +31,51 @@ main {
     padding: 40px 20px;
     position: relative; /* Allows absolute positioning of the bunny and grass */
     min-height: 400px; /* Reduced to tighten the gap */
-    background: linear-gradient(to bottom, #FFE8E0 50%, #D1E5F7 100%); /* Adjusted gradient: blue starts earlier, slightly darker */
+    background: linear-gradient(to bottom, #FFE8E0 50%, #D1E5F7 100%); /* Adjusted gradient */
     overflow: hidden; /* Crops any overflow on mobile */
 }
 
 .welcome .bunny {
-    width: 200px; /* Larger size for better visibility */
+    width: 200px;
     position: absolute;
-    bottom: -180px; /* Start just below the grass (bunny is 200px tall, so top 20px peeks out) */
-    left: calc(50% - 100px); /* Center the bunny (50% - half of bunny width) */
-    z-index: 1; /* Bunny behind grass */
-    transition: bottom 0.1s linear, left 0.5s ease-in-out; /* Add transition for left movement */
+    bottom: -180px;
+    left: calc(50% - 100px);
+    z-index: 1;
+    transition: bottom 0.1s linear, left 0.5s ease-in-out;
 }
 
 .welcome .grass {
-    width: 100%; /* Stretches full width on desktop */
+    width: 100%;
     position: absolute;
-    bottom: 0; /* Aligns bottom of grass with bottom of section */
-    left: 0; /* Starts at the left edge */
-    z-index: 2; /* Grass in front of bunny */
+    bottom: 0;
+    left: 0;
+    z-index: 2;
 }
 
 .welcome h2 {
     font-size: 2em;
     color: #4A4A4A;
-    margin-top: 5px; /* Reduced to tighten the gap */
+    margin-top: 5px;
 }
 
 .welcome p {
     font-size: 1.1em;
-    margin: 3px 0; /* Reduced to tighten the gap */
+    margin: 3px 0;
 }
 
 .demo-chat-try {
-    opacity: 0; /* Start fully transparent */
+    opacity: 0;
     background-color: #fff;
     border-radius: 20px;
     padding: 5px 10px;
     position: absolute;
-    bottom: 80px; /* Position for desktop (not visible) */
-    left: calc(50% + 80px); /* Right of the bunny (bunny width/2 = 100px) */
-    transform: translateX(0); /* No centering, aligned to the right of bunny */
-    z-index: 3; /* Above bunny and grass */
-    transition: opacity 0.1s linear; /* Smooth fade-in tied to scroll */
+    bottom: 80px;
+    left: calc(50% + 80px);
+    transform: translateX(0);
+    z-index: 3;
+    transition: opacity 0.1s linear;
     cursor: pointer;
-    display: none; /* Hidden by default, shown on mobile */
+    display: none;
 }
 
 .demo-chat-try span {
@@ -86,40 +86,40 @@ main {
 .demo-chat-try::before {
     content: '';
     position: absolute;
-    bottom: 7px; /* Centered vertically on the bubble */
-    left: -8px; /* Adjusted to connect seamlessly */
+    bottom: 7px;
+    left: -8px;
     width: 0;
     height: 0;
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
-    border-right: 10px solid #fff; /* Matches left adjustment */
+    border-right: 10px solid #fff;
 }
 
 .demo-chat {
-    opacity: 0; /* Start fully transparent */
+    opacity: 0;
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 250px;
     max-width: 90%;
     position: absolute;
-    bottom: 80px; /* Positioned above the bunny's bottom */
-    left: calc(50% + 100px); /* Right of the bunny (bunny width/2 = 100px) */
-    transform: translateX(0); /* No centering, aligned to the right of bunny */
-    z-index: 3; /* Above bunny and grass */
-    transition: opacity 0.1s linear, left 0.5s ease-in-out; /* Add transition for left movement */
+    bottom: 80px;
+    left: calc(50% + 100px);
+    transform: translateX(0);
+    z-index: 3;
+    transition: opacity 0.1s linear, left 0.5s ease-in-out;
 }
 
 .demo-chat::before {
     content: '';
     position: absolute;
-    bottom: 10px; /* Tail position */
-    left: -9px; /* Adjusted to connect seamlessly */
+    bottom: 10px;
+    left: -9px;
     width: 0;
     height: 0;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
-    border-right: 10px solid #fff; /* Matches left adjustment */
+    border-right: 10px solid #fff;
 }
 
 .demo-header {
@@ -179,7 +179,7 @@ main {
 }
 
 .get-started:hover {
-    background-color: #E6F0FA; /* Light blue on hover */
+    background-color: #E6F0FA;
 }
 
 .features {
@@ -208,18 +208,68 @@ main {
     margin: 0;
 }
 
-.timeline, .due-date-calculator, .baby-tracker, .community, .resources, .self-care {
+.tabs-section {
     padding: 40px 20px;
-    background-color: #F9E4E4; /* Pale pink background */
+    background-color: #F9E4E4;
 }
 
-.timeline h2, .due-date-calculator h2, .baby-tracker h2, .community h2, .resources h2, .self-care h2 {
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    background-color: #E6F0FA;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-family: 'Quicksand', sans-serif;
+    color: #4A4A4A;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tab-button:hover {
+    background-color: #D1E5F7;
+}
+
+.tab-button.active {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tab-content {
+    position: relative;
+    min-height: 300px; /* Ensures consistent height */
+}
+
+.tab-pane {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+}
+
+.tab-pane.active {
+    display: block;
+    opacity: 1;
+}
+
+.tab-pane h2 {
     font-size: 2em;
     color: #4A4A4A;
     margin-bottom: 10px;
 }
 
-.timeline p, .due-date-calculator p, .baby-tracker p, .community p, .resources p, .self-care p {
+.tab-pane p {
     font-size: 1.1em;
     margin-bottom: 20px;
 }
@@ -270,21 +320,21 @@ main {
     margin: 0;
 }
 
-.due-date-calculator form, .baby-tracker form {
+#due-date form, #baby-tracker form {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
 }
 
-.due-date-calculator input, .baby-tracker select, .baby-tracker input {
+#due-date input, #baby-tracker select, #baby-tracker input {
     padding: 5px;
     border: 1px solid #4A4A4A;
     border-radius: 5px;
     font-family: 'Quicksand', sans-serif;
 }
 
-.due-date-calculator button, .baby-tracker button, .self-care-item button {
+#due-date button, #baby-tracker button, .self-care-item button {
     background-color: #E6F0FA;
     border: none;
     padding: 8px 15px;
@@ -295,7 +345,7 @@ main {
     cursor: pointer;
 }
 
-.due-date-calculator button:hover, .baby-tracker button:hover, .self-care-item button:hover {
+#due-date button:hover, #baby-tracker button:hover, .self-care-item button:hover {
     background-color: #D1E5F7;
 }
 
@@ -318,12 +368,12 @@ footer {
     bottom: 0;
     width: 100%;
     color: #4A4A4A;
-    opacity: 0; /* Initially hidden */
-    transition: opacity 0.5s ease-in-out; /* Smooth fade-in */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
 footer.visible {
-    opacity: 1; /* Fully visible when the class is added */
+    opacity: 1;
 }
 
 .chat-box {
@@ -357,32 +407,32 @@ footer.visible {
 /* Media query for mobile */
 @media (max-width: 768px) {
     .welcome .grass {
-        width: 1100px; /* Increased from 900px to make it a bit taller */
-        height: auto; /* Lets height scale with width */
+        width: 1100px;
+        height: auto;
         left: 50%;
-        transform: translateX(-50%); /* Centers it */
-        object-fit: cover; /* Crops sides to fit screen */
+        transform: translateX(-50%);
+        object-fit: cover;
     }
 
     main {
-        padding-bottom: 80px; /* Extra padding on mobile to account for smaller viewport */
+        padding-bottom: 80px;
     }
 
     .demo-chat-try {
-        display: block; /* Show the "Try Aya" bubble on mobile */
-        bottom: 100px; /* Position already set */
+        display: block;
+        bottom: 100px;
     }
 
     .demo-chat {
-        display: none; /* Hide the full chat by default on mobile */
-        width: 200px; /* Smaller width on mobile */
-        bottom: 60px; /* Position for mobile */
-        left: calc(50% + 80px); /* Adjust for smaller bunny width on mobile */
+        display: none;
+        width: 200px;
+        bottom: 60px;
+        left: calc(50% + 80px);
     }
 }
 
 @media (min-width: 769px) {
     .demo-chat-try {
-        display: none; /* Hide the "Try Aya" bubble on desktop */
+        display: none;
     }
 }
