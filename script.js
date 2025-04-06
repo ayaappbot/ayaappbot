@@ -116,41 +116,56 @@ window.addEventListener('scroll', () => {
 
     // Bottle scroll effect on mobile
     if (viewportWidth <= 768) { // Only on mobile
+        const featuresSection = document.querySelector('.features');
+        const featuresRect = featuresSection.getBoundingClientRect();
         const features = document.querySelectorAll('.feature');
         const viewportCenter = viewportHeight / 2; // Middle of the viewport
-        let closestFeature = null;
-        let minDistance = Infinity;
 
-        // Find the feature closest to the viewport center
-        features.forEach(feature => {
-            const rect = feature.getBoundingClientRect();
-            const featureCenter = rect.top + rect.height / 2; // Center of the feature card
-            const distanceFromCenter = Math.abs(viewportCenter - featureCenter);
+        // Only proceed if the features section is at least partially in view
+        if (featuresRect.top < viewportHeight && featuresRect.bottom > 0) {
+            let closestFeature = null;
+            let minDistance = Infinity;
 
-            if (distanceFromCenter < minDistance) {
-                minDistance = distanceFromCenter;
-                closestFeature = feature;
-            }
-        });
+            // Find the feature closest to the viewport center
+            features.forEach(feature => {
+                const rect = feature.getBoundingClientRect();
+                const featureCenter = rect.top + rect.height / 2; // Center of the feature card
+                const distanceFromCenter = Math.abs(viewportCenter - featureCenter);
 
-        // Update bottles based on the closest feature
-        features.forEach(feature => {
-            const bottle = feature.querySelector('.bottle-hover');
-            const rect = feature.getBoundingClientRect();
-            const featureCenter = rect.top + rect.height / 2; // Center of the feature card
-            const distanceFromCenter = Math.abs(viewportCenter - featureCenter);
-            const maxDistance = viewportHeight / 4; // Reduced range for sharper fade
+                if (distanceFromCenter < minDistance) {
+                    minDistance = distanceFromCenter;
+                    closestFeature = feature;
+                }
+            });
 
-            // Calculate opacity based on distance (1 when in center, 0 when at edges)
-            const opacity = Math.max(0, 1 - (distanceFromCenter / maxDistance));
+            // Update bottles based on the closest feature
+            features.forEach(feature => {
+                const bottle = feature.querySelector('.bottle-hover');
+                const rect = feature.getBoundingClientRect();
+                const featureCenter = rect.top + rect.height / 2; // Center of the feature card
+                const distanceFromCenter = Math.abs(viewportCenter - featureCenter);
+                const maxDistance = viewportHeight / 6; // Tighter range for sharper fade
 
-            if (feature === closestFeature && opacity > 0) {
-                bottle.classList.add('active');
-                bottle.style.opacity = opacity;
-            } else {
+                // Calculate opacity based on distance (1 when in center, 0 when at edges)
+                const opacity = Math.max(0, 1 - (distanceFromCenter / maxDistance));
+
+                if (feature === closestFeature && opacity > 0) {
+                    bottle.classList.add('active');
+                    bottle.style.opacity = opacity;
+                    // Position the bottle to "point" to the center of the card
+                    bottle.style.top = `${featureCenter - 25}px`; // Adjust 25px to center the bottle vertically (half of bottle height)
+                } else {
+                    bottle.classList.remove('active');
+                    bottle.style.opacity = 0;
+                }
+            });
+        } else {
+            // Hide all bottles if the features section is not in view
+            features.forEach(feature => {
+                const bottle = feature.querySelector('.bottle-hover');
                 bottle.classList.remove('active');
                 bottle.style.opacity = 0;
-            }
-        });
+            });
+        }
     }
 });
