@@ -107,7 +107,7 @@ main {
     left: calc(50% + 100px); /* Right of the bunny (bunny width/2 = 100px) */
     transform: translateX(0); /* No centering, aligned to the right of bunny */
     z-index: 3; /* Above bunny and grass */
-    transition: opacity 0.1s linear, left 0.5s ease-in-out; /* Add transition for left movement */
+    transition: opacity 0.3s ease-in-out, left 0.5s ease-in-out; /* Smooth fade-in and left movement */
 }
 
 .demo-chat::before {
