@@ -30,6 +30,23 @@ document.getElementById('demoInput').addEventListener('keypress', (e) => {
     }
 });
 
+// Track whether the bunny has been moved by the "Try Aya" click
+let bunnyMoved = false;
+
+// Function to center the bunny in pixels
+function centerBunny() {
+    const bunny = document.querySelector('.bunny');
+    const viewportWidth = window.innerWidth;
+    const bunnyWidth = bunny.offsetWidth; // Bunny width (200px)
+    const centerPosition = (viewportWidth - bunnyWidth) / 2; // Center in pixels
+    bunny.style.left = `${centerPosition}px`;
+}
+
+// Set the bunny's initial position on page load
+window.addEventListener('load', () => {
+    centerBunny();
+});
+
 // Click handler for "Try Aya" bubble on mobile
 document.getElementById('demoChatTry').addEventListener('click', () => {
     const bunny = document.querySelector('.bunny');
@@ -54,6 +71,9 @@ document.getElementById('demoChatTry').addEventListener('click', () => {
         demoChatTry.style.display = 'none';
         demoChat.style.display = 'block';
         demoChat.style.opacity = '1'; // Ensure full chat is fully visible
+        
+        // Mark that the bunny has been moved
+        bunnyMoved = true;
     }, 10); // Small delay to ensure the initial position is set
 });
 
@@ -62,12 +82,11 @@ window.addEventListener('scroll', () => {
     const bunny = document.querySelector('.bunny');
     const demoChat = document.getElementById('demoChat');
     const demoChatTry = document.getElementById('demoChatTry');
-    const viewportWidth = window.innerWidth;
-    const bunnyWidth = bunny.offsetWidth; // Bunny width (200px)
-    const centerPosition = (viewportWidth - bunnyWidth) / 2; // Center in pixels
     
-    // Set bunny's horizontal position to center in pixels
-    bunny.style.left = `${centerPosition}px`;
+    // Only center the bunny if it hasn't been moved by the "Try Aya" click
+    if (!bunnyMoved) {
+        centerBunny();
+    }
     
     const scrollY = window.scrollY; // How far we’ve scrolled from the top
     const scrollRange = 200; // Distance to complete the movement
