@@ -5,11 +5,14 @@ body {
     background-color: #FFE8E0; /* Light peach background */
     color: #4A4A4A;
     text-align: center;
+    overflow-x: hidden; /* Prevent horizontal scroll on body */
 }
 
 header {
     background-color: #F9E4E4; /* Pale pink header */
     padding: 20px;
+    max-width: 100%; /* Ensure header fits */
+    box-sizing: border-box;
 }
 
 header h1 {
@@ -24,15 +27,20 @@ header p {
 }
 
 main {
-    padding-bottom: 60px; /* Add padding to ensure content isn't covered by the footer */
+    padding-bottom: 60px; /* Add padding for footer */
+    max-width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll on main */
+    box-sizing: border-box;
 }
 
 .welcome {
     padding: 40px 20px;
-    position: relative; /* Allows absolute positioning of the bunny and grass */
-    min-height: 400px; /* Reduced to tighten the gap */
-    background: linear-gradient(to bottom, #FFE8E0 50%, #D1E5F7 100%); /* Adjusted gradient */
-    overflow: hidden; /* Crops any overflow on mobile */
+    position: relative;
+    min-height: 400px;
+    background: linear-gradient(to bottom, #FFE8E0 50%, #D1E5F7 100%);
+    overflow: hidden;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .welcome .bunny {
@@ -50,6 +58,7 @@ main {
     bottom: 0;
     left: 0;
     z-index: 2;
+    max-width: 100%;
 }
 
 .welcome h2 {
@@ -107,332 +116,4 @@ main {
     left: calc(50% + 100px);
     transform: translateX(0);
     z-index: 3;
-    transition: opacity 0.1s linear, left 0.5s ease-in-out;
-}
-
-.demo-chat::before {
-    content: '';
-    position: absolute;
-    bottom: 10px;
-    left: -9px;
-    width: 0;
-    height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-right: 10px solid #fff;
-}
-
-.demo-header {
-    background-color: #F9E4E4;
-    padding: 8px;
-    border-radius: 15px 15px 0 0;
-    font-size: 1em;
-    color: #4A4A4A;
-}
-
-.demo-messages {
-    padding: 8px;
-    max-height: 120px;
-    overflow-y: auto;
-    text-align: left;
-}
-
-.demo-messages p {
-    margin: 5px 0;
-    font-size: 0.85em;
-}
-
-#demoInput {
-    width: 65%;
-    padding: 5px;
-    margin: 8px 5px 8px 8px;
-    border: 1px solid #4A4A4A;
-    border-radius: 20px;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 0.85em;
-}
-
-.demo-chat button {
-    background-color: #E6F0FA;
-    border: none;
-    padding: 5px 10px;
-    font-size: 0.85em;
-    font-family: 'Quicksand', sans-serif;
-    color: #4A4A4A;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-.demo-chat button:hover {
-    background-color: #D1E5F7;
-}
-
-.get-started {
-    background-color: #F9E4E4;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1em;
-    font-family: 'Quicksand', sans-serif;
-    color: #4A4A4A;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-.get-started:hover {
-    background-color: #E6F0FA;
-}
-
-.features {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-    flex-wrap: wrap;
-}
-
-.feature {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    width: 200px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.feature h3 {
-    font-size: 1.2em;
-    margin: 0 0 10px;
-}
-
-.feature p {
-    font-size: 0.9em;
-    margin: 0;
-}
-
-.tabs-section {
-    padding: 40px 20px;
-    background-color: #F9E4E4;
-}
-
-.tabs {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-}
-
-.tab-button {
-    background-color: #E6F0FA;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1em;
-    font-family: 'Quicksand', sans-serif;
-    color: #4A4A4A;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.tab-button:hover {
-    background-color: #D1E5F7;
-}
-
-.tab-button.active {
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.tab-content {
-    position: relative;
-    min-height: 300px; /* Ensures consistent height */
-}
-
-.tab-pane {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px;
-}
-
-.tab-pane.active {
-    display: block;
-    opacity: 1;
-}
-
-.tab-pane h2 {
-    font-size: 2em;
-    color: #4A4A4A;
-    margin-bottom: 10px;
-}
-
-.tab-pane p {
-    font-size: 1.1em;
-    margin-bottom: 20px;
-}
-
-.timeline-container, .community-topics, .resources-container, .self-care-tools {
-    display: flex;
-    overflow-x: auto;
-    gap: 20px;
-    padding-bottom: 10px;
-    scroll-snap-type: x mandatory;
-}
-
-.timeline-container::-webkit-scrollbar, .community-topics::-webkit-scrollbar, .resources-container::-webkit-scrollbar, .self-care-tools::-webkit-scrollbar {
-    height: 8px;
-}
-
-.timeline-container::-webkit-scrollbar-track, .community-topics::-webkit-scrollbar-track, .resources-container::-webkit-scrollbar-track, .self-care-tools::-webkit-scrollbar-track {
-    background: #F9E4E4;
-    border-radius: 10px;
-}
-
-.timeline-container::-webkit-scrollbar-thumb, .community-topics::-webkit-scrollbar-thumb, .resources-container::-webkit-scrollbar-thumb, .self-care-tools::-webkit-scrollbar-thumb {
-    background: #E6F0FA;
-    border-radius: 10px;
-}
-
-.timeline-container::-webkit-scrollbar-thumb:hover, .community-topics::-webkit-scrollbar-thumb:hover, .resources-container::-webkit-scrollbar-thumb:hover, .self-care-tools::-webkit-scrollbar-thumb:hover {
-    background: #D1E5F7;
-}
-
-.timeline-item, .community-item, .resource-item, .self-care-item {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    min-width: 200px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    scroll-snap-align: center;
-}
-
-.timeline-item h3, .community-item h3, .resource-item h3, .self-care-item h3 {
-    font-size: 1.2em;
-    margin: 0 0 10px;
-    color: #4A4A4A;
-}
-
-.timeline-item p, .community-item p, .resource-item p, .self-care-item p {
-    font-size: 0.9em;
-    margin: 0;
-}
-
-#due-date form, #baby-tracker form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-#due-date input, #baby-tracker select, #baby-tracker input {
-    padding: 5px;
-    border: 1px solid #4A4A4A;
-    border-radius: 5px;
-    font-family: 'Quicksand', sans-serif;
-}
-
-#due-date button, #baby-tracker button, .self-care-item button {
-    background-color: #E6F0FA;
-    border: none;
-    padding: 8px 15px;
-    font-size: 0.9em;
-    font-family: 'Quicksand', sans-serif;
-    color: #4A4A4A;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-#due-date button:hover, #baby-tracker button:hover, .self-care-item button:hover {
-    background-color: #D1E5F7;
-}
-
-#dueDateResult, #trackerLog {
-    margin-top: 20px;
-    font-size: 1em;
-    color: #4A4A4A;
-}
-
-.resource-item ul {
-    text-align: left;
-    padding-left: 20px;
-    font-size: 0.9em;
-}
-
-footer {
-    background-color: #F9E4E4;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    color: #4A4A4A;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-footer.visible {
-    opacity: 1;
-}
-
-.chat-box {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 300px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.chat-header {
-    background-color: #F9E4E4;
-    padding: 10px;
-    border-radius: 10px 10px 0 0;
-}
-
-.chat-messages {
-    padding: 10px;
-    max-height: 200px;
-    overflow-y: auto;
-}
-
-#chatInput {
-    width: 70%;
-    padding: 5px;
-    margin: 10px;
-}
-
-/* Media query for mobile */
-@media (max-width: 768px) {
-    .welcome .grass {
-        width: 1100px;
-        height: auto;
-        left: 50%;
-        transform: translateX(-50%);
-        object-fit: cover;
-    }
-
-    main {
-        padding-bottom: 80px;
-    }
-
-    .demo-chat-try {
-        display: block;
-        bottom: 100px;
-    }
-
-    .demo-chat {
-        display: none;
-        width: 200px;
-        bottom: 60px;
-        left: calc(50% + 80px);
-    }
-}
-
-@media (min-width: 769px) {
-    .demo-chat-try {
-        display: none;
-    }
-}
+    transition: opacity 0.1s linear, left
