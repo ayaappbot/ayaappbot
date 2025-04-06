@@ -76,7 +76,7 @@ main {
     opacity: 0;
     background-color: #fff;
     border-radius: 20px;
-    padding: 8px 12px; /* Slightly increased padding for stacked text */
+    padding: 8px 12px;
     position: absolute;
     bottom: 80px;
     left: calc(50% + 80px);
@@ -90,16 +90,16 @@ main {
 .demo-chat-try span {
     font-size: 0.9em;
     color: #4A4A4A;
-    display: block; /* Make span a block element for stacking */
-    text-align: center; /* Center the text */
-    line-height: 1.2; /* Adjust line height for better spacing */
+    display: block;
+    text-align: center;
+    line-height: 1.2;
 }
 
 .demo-chat-try::before {
     content: '';
     position: absolute;
-    bottom: 7px;
-    left: -8px;
+    bottom: 12px; /* Adjusted to align with the taller bubble */
+    left: -9px; /* Slightly adjusted to touch the edge */
     width: 0;
     height: 0;
     border-top: 5px solid transparent;
