@@ -309,7 +309,6 @@ main {
     scroll-snap-type: x mandatory;
     max-width: 100%;
     box-sizing: border-box;
-    scroll-behavior: smooth; /* Smooth scrolling for JavaScript adjustments */
 }
 
 .timeline-container::-webkit-scrollbar, .community-topics::-webkit-scrollbar, .resources-container::-webkit-scrollbar, .self-care-tools::-webkit-scrollbar {
@@ -508,8 +507,14 @@ footer.visible {
     }
 }
 
+/* Media query for desktop */
 @media (min-width: 769px) {
     .demo-chat-try {
         display: none;
+    }
+
+    /* Center cards on desktop for specific containers */
+    .community-topics, .resources-container, .self-care-tools, .timeline-container {
+        justify-content: center; /* Center the cards horizontally */
     }
 }
