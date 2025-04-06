@@ -39,7 +39,7 @@ main {
     width: 200px; /* Larger size for better visibility */
     position: absolute;
     bottom: -180px; /* Start just below the grass (bunny is 200px tall, so top 20px peeks out) */
-    left: 50%; /* Initial position, will be overridden by JS */
+    left: calc(50% - 100px); /* Center the bunny (50% - half of bunny width) */
     z-index: 1; /* Bunny behind grass */
     transition: bottom 0.1s linear, left 0.5s ease-in-out; /* Add transition for left movement */
 }
@@ -107,7 +107,7 @@ main {
     left: calc(50% + 100px); /* Right of the bunny (bunny width/2 = 100px) */
     transform: translateX(0); /* No centering, aligned to the right of bunny */
     z-index: 3; /* Above bunny and grass */
-    transition: opacity 0.1s linear; /* Smooth fade-in tied to scroll */
+    transition: opacity 0.1s linear, left 0.5s ease-in-out; /* Add transition for left movement */
 }
 
 .demo-chat::before {
