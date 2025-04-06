@@ -214,7 +214,7 @@ main {
     display: none; /* Hidden by default, shown on hover on desktop */
     position: absolute;
     bottom: 10px;
-    left: 10px;
+    left: 5px; /* Moved more to the left (was 10px) */
     z-index: 1;
 }
 
@@ -382,10 +382,9 @@ footer.visible {
 
     .bottle-hover {
         display: none; /* Hidden by default on mobile, controlled by JS */
-        position: fixed; /* Position in the middle of the screen */
+        position: fixed; /* Position on the left side of the screen */
         bottom: 20%; /* Adjust as needed */
-        left: 50%;
-        transform: translateX(-50%); /* Center horizontally */
+        left: 10px; /* Position on the left side */
         z-index: 10; /* Above other elements */
         opacity: 0; /* Start fully transparent */
         transition: opacity 0.3s ease-in-out; /* Smooth fade */
