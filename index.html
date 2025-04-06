@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aya: A chatbot for new moms offering pregnancy support, product recommendations, and fetal development info.">
+    <meta name="description" content="Aya: A chatbot for new moms offering pregnancy support, product recommendations, fetal development info, and more.">
     <meta name="keywords" content="new mom app, pregnancy chatbot, midwife app, Aya">
     <title>Aya - Your New Mom Chatbot</title>
     <link rel="stylesheet" href="styles.css">
@@ -40,7 +40,7 @@
             </div>
             <div class="feature">
                 <h3>Product Recommendations</h3>
-                <p>Find the best products tailored for you and your baby.</p>
+                <p>pentersFind the best products tailored for you and your baby.</p>
             </div>
             <div class="feature">
                 <h3>Fetal Development</h3>
@@ -73,10 +73,87 @@
                 </div>
             </div>
         </section>
+        <section class="due-date-calculator">
+            <h2>Due Date Calculator</h2>
+            <p>Find out your estimated due date!</p>
+            <form id="dueDateForm">
+                <label for="lmp">Last Menstrual Period (LMP):</label>
+                <input type="date" id="lmp" required>
+                <button type="submit">Calculate</button>
+            </form>
+            <div id="dueDateResult"></div>
+        </section>
+        <section class="baby-tracker">
+            <h2>Baby Tracker</h2>
+            <p>Log your baby’s feedings, sleep, and diapers.</p>
+            <form id="trackerForm">
+                <select id="trackerType">
+                    <option value="feeding">Feeding</option>
+                    <option value="sleep">Sleep</option>
+                    <option value="diaper">Diaper</option>
+                </select>
+                <input type="text" id="trackerDetails" placeholder="Details (e.g., 10 min, wet)">
+                <button type="submit">Log</button>
+            </form>
+            <div id="trackerLog"></div>
+        </section>
+        <section class="community">
+            <h2>Community</h2>
+            <p>Join other moms for support and advice.</p>
+            <div class="community-topics">
+                <div class="community-item">
+                    <h3>First Trimester</h3>
+                    <p>"Anyone else feeling super tired?" - Sarah</p>
+                </div>
+                <div class="community-item">
+                    <h3>Breastfeeding</h3>
+                    <p>"Tips for latching?" - Emily</p>
+                </div>
+                <div class="community-item">
+                    <h3>Postpartum</h3>
+                    <p>"How do you cope with sleep loss?" - Mia</p>
+                </div>
+            </div>
+        </section>
+        <section class="resources">
+            <h2>Resources</h2>
+            <p>Helpful articles and checklists for every stage.</p>
+            <div class="resources-container">
+                <div class="resource-item">
+                    <h3>10 Tips for Better Sleep</h3>
+                    <p>Simple ways to rest during pregnancy.</p>
+                </div>
+                <div class="resource-item">
+                    <h3>Hospital Bag Checklist</h3>
+                    <p>Don’t forget these essentials!</p>
+                    <ul>
+                        <li>Comfy clothes</li>
+                        <li>Toiletries</li>
+                        <li>Baby blanket</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="self-care">
+            <h2>Self-Care & Mental Health</h2>
+            <p>Take a moment for yourself.</p>
+            <div class="self-care-tools">
+                <div class="self-care-item">
+                    <h3>Meditation</h3>
+                    <p>"Breathe in for 4, hold for 4, out for 4."</p>
+                    <button onclick="alert('Take a deep breath and follow the prompt!')">Try Now</button>
+                </div>
+                <div class="self-care-item">
+                    <h3>Postpartum Check</h3>
+                    <p>Quick screener: "Feeling down often?"</p>
+                    <button onclick="alert('Answer Yes/No to 5 questions in the app!')">Start</button>
+                </div>
+            </div>
+        </section>
         <div class="chat-box" id="chatBox" style="display: none;">
             <div class="chat-header">Chat with Aya</div>
             <div class="chat-messages" id="chatMessages"></div>
-            <input type="text" id="chatInput" placeholder="Ask me anything!">
+            <input type="text" id="名为" placeholder="Ask me anything!">
             <button onclick="sendMessage()">Send</button>
         </div>
     </main>
