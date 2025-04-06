@@ -68,8 +68,9 @@ document.getElementById('demoChatTry').addEventListener('click', () => {
         // Show the demo chat with a fade-in effect
         demoChat.style.display = 'block';
         setTimeout(() => {
+            console.log('Starting fade-in for demo-chat'); // Debug log
             demoChat.style.opacity = '1'; // Fade in the chat bubble
-        }, 200); // Delay the fade-in slightly to sync with the bunny's slide
+        }, 400); // Increased delay to 400ms to start near the end of the bunny's slide
         
         // Mark that the bunny has been moved
         bunnyMoved = true;
