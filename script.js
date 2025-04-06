@@ -66,11 +66,12 @@ document.getElementById('demoChatTry').addEventListener('click', () => {
         demoChatTry.style.display = 'none';
         
         // Show the demo chat with a fade-in effect
+        demoChat.classList.add('fade-in'); // Apply the longer fade-in transition
         demoChat.style.display = 'block';
         setTimeout(() => {
-            console.log('Starting fade-in for demo-chat'); // Debug log
+            console.log('Starting fade-in for demo-chat after bunny slide'); // Debug log
             demoChat.style.opacity = '1'; // Fade in the chat bubble
-        }, 400); // Increased delay to 400ms to start near the end of the bunny's slide
+        }, 500); // Delay until the bunny slide completes (500ms)
         
         // Mark that the bunny has been moved
         bunnyMoved = true;
@@ -87,7 +88,7 @@ window.addEventListener('scroll', () => {
     const bunnyWidth = bunny.offsetWidth; // Bunny width (200px)
     const centerPosition = (viewportWidth - bunnyWidth) / 2; // Center in pixels
     
-    // Only center the bunny if it hasn't been moved by the "Try Aya" click
+    // Only center the bunny and adjust demo chat if the bunny hasn't been moved
     if (!bunnyMoved) {
         bunny.style.left = `${centerPosition}px`;
         
@@ -104,8 +105,10 @@ window.addEventListener('scroll', () => {
     bunny.style.bottom = `${bunnyPosition}px`; // Update the position
 
     // Fade in demo chat (desktop) or "Try Aya" bubble (mobile) using the same progress
-    demoChat.style.opacity = progress; // For desktop
-    demoChatTry.style.opacity = progress; // For mobile
+    if (!bunnyMoved) { // Only apply scroll-based opacity if the bunny hasn't moved
+        demoChat.style.opacity = progress; // For desktop
+        demoChatTry.style.opacity = progress; // For mobile
+    }
 
     // Footer fade-in
     const welcomeSection = document.querySelector('.welcome');
