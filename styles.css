@@ -447,6 +447,74 @@ footer.visible {
     box-sizing: border-box;
 }
 
+.user-message {
+    text-align: right;
+    color: #4A4A4A;
+    margin: 5px 0;
+}
+
+.aya-message {
+    text-align: left;
+    color: #4A4A4A;
+    margin: 5px 0;
+}
+
+.error-message {
+    text-align: center;
+    color: red;
+    margin: 5px 0;
+}
+
+.auth-section {
+    padding: 20px;
+    background-color: #F9E4E4;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.auth-section h2 {
+    font-size: 1.5em;
+    color: #4A4A4A;
+    margin-bottom: 20px;
+}
+
+.auth-form {
+    margin-bottom: 20px;
+}
+
+.auth-form h3 {
+    font-size: 1.2em;
+    color: #4A4A4A;
+    margin-bottom: 10px;
+}
+
+.auth-form input {
+    padding: 5px;
+    margin: 5px 0;
+    border: 1px solid #4A4A4A;
+    border-radius: 5px;
+    font-family: 'Quicksand', sans-serif;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+}
+
+.auth-form button, #signOutButton {
+    background-color: #E6F0FA;
+    border: none;
+    padding: 8px 15px;
+    font-size: 0.9em;
+    font-family: 'Quicksand', sans-serif;
+    color: #4A4A4A;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.auth-form button:hover, #signOutButton:hover {
+    background-color: #D1E5F7;
+}
+
 /* Media query for mobile */
 @media (max-width: 768px) {
     .welcome .grass {
@@ -513,8 +581,7 @@ footer.visible {
         display: none;
     }
 
-    /* Center cards on desktop for specific containers */
     .community-topics, .resources-container, .self-care-tools, .timeline-container {
-        justify-content: center; /* Center the cards horizontally */
+        justify-content: center;
     }
 }
