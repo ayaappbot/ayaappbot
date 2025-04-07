@@ -18,7 +18,7 @@
         <section class="welcome">
             <img src="bunny1.png" alt="Aya Bunny Mascot" class="bunny">
             <div class="demo-chat-try" id="demoChatTry">
-                <span>Hello! Tap to<br>Try Aya</span> <!-- Updated text with stacking -->
+                <span>Hello! Tap to<br>Try Aya</span>
             </div>
             <div class="demo-chat" id="demoChat">
                 <div class="demo-header">Try Aya Now</div>
@@ -32,6 +32,22 @@
             <h2>Welcome to Aya!</h2>
             <p>Hi there! I’m here to support you during your pregnancy and beyond.</p>
             <button class="get-started">Sign Up to Chat More</button>
+        </section>
+        <section class="auth-section" id="authSection">
+            <h2>Login or Register</h2>
+            <div class="auth-form">
+                <h3>Register</h3>
+                <input type="email" id="registerEmail" placeholder="Email" required>
+                <input type="password" id="registerPassword" placeholder="Password" required>
+                <button onclick="register()">Register</button>
+            </div>
+            <div class="auth-form">
+                <h3>Login</h3>
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button onclick="login()">Login</button>
+            </div>
+            <button onclick="signOut()" id="signOutButton" style="display: none;">Sign Out</button>
         </section>
         <section class="features">
             <div class="feature">
@@ -170,8 +186,34 @@
         </div>
     </main>
     <footer id="footer">
-        <p>© 2025 Aya. All rights reserved.</p>
+        <p>© 2025 Aya. All rights reserved. | <a href="/privacy-policy.html">Privacy Policy</a></p>
     </footer>
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCVbNoF8zB2EuDgdSudBL7ptxc-9fOvldM",
+            authDomain: "ayachatbot-f3ad5.firebaseapp.com",
+            projectId: "ayachatbot-f3ad5",
+            storageBucket: "ayachatbot-f3ad5.firebasestorage.app",
+            messagingSenderId: "794556079435",
+            appId: "1:794556079435:web:73516963e5fc87de7cdcce"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Make auth available globally for use in script.js
+        window.auth = auth;
+        window.createUserWithEmailAndPassword = createUserWithEmailAndPassword;
+        window.signInWithEmailAndPassword = signInWithEmailAndPassword;
+        window.signOut = signOut;
+        window.onAuthStateChanged = onAuthStateChanged;
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
