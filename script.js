@@ -1,13 +1,16 @@
-// Chat functionality
-document.querySelector('.get-started').addEventListener('click', () => {
-    document.getElementById('chatBox').style.display = 'block';
-});
-
+// Chat functionality (static for now, will be updated with OpenAI API)
 function sendMessage() {
     const input = document.getElementById('chatInput').value;
     const messages = document.getElementById('chatMessages');
-    messages.innerHTML += `<p>You: ${input}</p>`;
-    messages.innerHTML += `<p>Aya: Let me help you with that!</p>`;
+
+    // Check if user is logged in
+    if (!auth.currentUser) {
+        alert("Please log in to use the chat.");
+        return;
+    }
+
+    messages.innerHTML += `<p class="user-message">You: ${input}</p>`;
+    messages.innerHTML += `<p class="aya-message">Aya: Let me help you with that!</p>`;
     document.getElementById('chatInput').value = '';
     messages.scrollTop = messages.scrollHeight;
 }
@@ -139,4 +142,67 @@ document.getElementById('trackerForm').addEventListener('submit', (e) => {
         `${log.timestamp}: ${log.type} - ${log.details}`
     ).join('<br>');
     document.getElementById('trackerDetails').value = '';
+});
+
+// Firebase Authentication Functions
+function register() {
+    const email = document.getElementById('registerEmail').value;
+    const password = document.getElementById('registerPassword').value;
+    createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            console.log("User registered:", userCredential.user);
+            alert("Registration successful! Please log in.");
+        })
+        .catch((error) => {
+            console.error("Error registering:", error.message);
+            alert("Error: " + error.message);
+        });
+}
+
+function login() {
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+    signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            console.log("User logged in:", userCredential.user);
+            alert("Login successful!");
+        })
+        .catch((error) => {
+            console.error("Error logging in:", error.message);
+            alert("Error: " + error.message);
+        });
+}
+
+function signOut() {
+    signOut(auth)
+        .then(() => {
+            console.log("User signed out");
+            alert("You have been signed out.");
+        })
+        .catch((error) => {
+            console.error("Error signing out:", error.message);
+            alert("Error: " + error.message);
+        });
+}
+
+// Manage Authentication State
+onAuthStateChanged(auth, (user) => {
+    const authSection = document.getElementById('authSection');
+    const chatBox = document.getElementById('chatBox');
+    const signOutButton = document.getElementById('signOutButton');
+    const getStartedButton = document.querySelector('.get-started');
+
+    if (user) {
+        // User is signed in
+        authSection.style.display = 'none';
+        chatBox.style.display = 'block';
+        signOutButton.style.display = 'block';
+        getStartedButton.style.display = 'none';
+    } else {
+        // User is signed out
+        authSection.style.display = 'block';
+        chatBox.style.display = 'none';
+        signOutButton.style.display = 'none';
+        getStartedButton.style.display = 'block';
+    }
 });
